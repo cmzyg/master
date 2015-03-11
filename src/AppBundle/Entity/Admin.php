@@ -33,6 +33,11 @@ class Admin {
      */
     protected $picture;
 
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    protected $lastLoggedIn;
+
 
     public function getName()
     {
@@ -52,6 +57,11 @@ class Admin {
     public function getPicture()
     {
         return $this->picture;
+    }
+
+    public function setLastLoggedIn($lastLoggedIn)
+    {
+        $this->lastLoggedIn = $lastLoggedIn;
     }
 
 

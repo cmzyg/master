@@ -20,7 +20,7 @@
                             <img alt="image" class="img-circle" src="{{ asset(administrator['picture']) }}" />
                              </span>
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">{{ administrator['name'] }}</strong>
+                            <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">{{ administrator.name }}</strong>
                              </span> <span class="text-muted text-xs block">Admin <b class="caret"></b></span> </span> </a>
                         <ul class="dropdown-menu animated fadeInRight m-t-xs">
                             <li><a href="profile.html">Profile</a></li>
@@ -312,7 +312,7 @@
         <div class="row  border-bottom white-bg dashboard-header">
 
             <div class="col-sm-3">
-                <h2>Welcome {{ administrator['name'] }}</h2>
+                <h2>Welcome {{ administrator.name }}</h2>
                 <small>You have 42 messages and 6 notifications.</small>
                 <ul class="list-group clear-list m-t">
                     <li class="list-group-item fist-item">
