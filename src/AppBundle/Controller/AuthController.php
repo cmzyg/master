@@ -53,11 +53,13 @@ class AuthController extends Controller
 
         if($result < 1)
         {
+            $this->session->getFlashBag()->add('error', 'Incorrect login details');
             $action = $this->redirect($this->generateUrl('login'));
         }
         else
         {
             $this->session->start();
+            $this->session->set('admin', $name);
             $action = $this->redirect($this->generateUrl('homepage'));
         }
 
@@ -68,6 +70,16 @@ class AuthController extends Controller
     private function isLoggedIn()
     {
         return $this->container->get('session')->isStarted();
+    }
+
+    /**
+     * @Route("/logout/", name="logout")
+     */
+    public function logOutAction()
+    {
+        $this->session->clear();
+        $this->session->getFlashBag()->add('loggedOut', 'You have logged out');
+        return $this->render('login/index.html.twig');
     }
 
 }

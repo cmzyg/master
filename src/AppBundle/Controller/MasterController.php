@@ -32,10 +32,11 @@ class MasterController extends Controller
             // return $this->redirect($this->generateUrl('login'));
         }
 
+        $name  = $this->session->get('admin');
         $admin = $this->getAdminDetails(2);
         $sites = $this->getManagedSites();
 
-        return $this->render('master/index.html.twig', array('administrator' => $admin, 'sites' => $sites));
+        return $this->render('master/index.html.twig', array('administrator' => $admin, 'sites' => $sites, 'name' => $name));
     }
 
 

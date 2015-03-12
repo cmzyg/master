@@ -22,7 +22,13 @@
         </div>
 
         <h3>Master Admin Control Tool</h3>
-        <p>Please login in order to proceed</p>
+
+            {% for flashMessage in app.session.flashbag.get('loggedOut') %}
+                <div class="flash-notice">
+                    {{ flashMessage }}
+                </div>
+            {% endfor %}
+
 
         <form class="m-t" role="form" method="GET" action="../process-login">
             <div class="form-group">
