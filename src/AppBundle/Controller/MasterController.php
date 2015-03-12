@@ -2,28 +2,40 @@
 
 namespace AppBundle\Controller;
 
+use Doctrine\Entity;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use AppBundle\Entity\Admin;
+use AppBundle\Entity\Sites;
 use Symfony\Component\HttpFoundation\Session\Session;
-use Symfony\Component\Validator\Constraints\Date;
+use Symfony\Component\HttpFoundation\Request;
 
 
 class MasterController extends Controller
 {
+    private $request;
+    private $session;
+
+    public function __construct()
+    {
+        $this->request = Request::createFromGlobals();
+        $this->session = new Session;
+    }
+
     /**
      * @Route("/", name="homepage")
      */
     public function indexAction()
     {
-        /*if(!$this->isLoggedIn())
+        if(!$this->isLoggedIn())
         {
-            return $this->redirect($this->generateUrl('error'));
-        }*/
+            // return $this->redirect($this->generateUrl('login'));
+        }
 
-        $admin = $this->getAdminDetails(1);
+        $admin = $this->getAdminDetails(2);
+        $sites = $this->getManagedSites();
 
-        return $this->render('master/index.html.twig', array('administrator' => $admin));
+        return $this->render('master/index.html.twig', array('administrator' => $admin, 'sites' => $sites));
     }
 
 
@@ -39,9 +51,19 @@ class MasterController extends Controller
         $admin['picture']  = $administrator->getPicture();
 
         $administrator->setLastLoggedIn(new \DateTime(date('Y-m-d H:i:s')));
+        $administrator->setCurrentLocation($this->request->getPathInfo());
         $em->flush();
 
         return is_array($admin) && !is_null($admin) ? $admin : false;
+    }
+
+    private function getManagedSites()
+    {
+        $em         = $this->getDoctrine()->getManager();
+        $repository = $em->getRepository('AppBundle:Sites');
+        $sites      = $repository->findAll();
+
+        return $sites;
     }
 
     private function isLoggedIn()

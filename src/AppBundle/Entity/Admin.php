@@ -38,6 +38,11 @@ class Admin {
      */
     protected $lastLoggedIn;
 
+    /**
+     * @ORM\Column(type="string")
+     */
+    protected $currentLocation;
+
 
     public function getName()
     {
@@ -62,6 +67,11 @@ class Admin {
     public function setLastLoggedIn($lastLoggedIn)
     {
         $this->lastLoggedIn = $lastLoggedIn;
+    }
+
+    public function setCurrentLocation($currentLocation)
+    {
+        $this->currentLocation = $currentLocation;
     }
 
 

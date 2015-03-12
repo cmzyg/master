@@ -1,3 +1,7 @@
 app:
     resource: @AppBundle/Controller/
     type:     annotation
+
+post:
+    resource: "@AppBundle/Controller/AuthController.php"
+    type:     annotation
