@@ -32,35 +32,46 @@ class AuthController extends Controller
             return $this->redirect($this->generateUrl('homepage'));
         }
 
-        return $this->render('login/index.html.twig');
+        return $this->render('login/index.html.twig', array('token' => md5(rand(1, 22222222))));
     }
 
     /**
-     * @Method("GET")
-     * @Route("/process-login/", name="process login")
+     * @Route("/process-login", name="process login")
+     * @Method("POST")
      */
     public function processLogin()
     {
-        $name     = $this->request->query->get('username');
-        $password = $this->request->query->get('password');
+        $name     = $this->request->request->get('name');
+        $password = $this->request->request->get('password');
+        $submit   = $this->request->request->get('submit');
+        $token    = $this->request->request->get('token');
 
-        $em    = $this->getDoctrine()->getManager();
-        $query = $em->createQuery('SELECT u.id FROM AppBundle:Admin u WHERE u.name = :name AND u.password = :password')
-                    ->setParameter('name', $name)
-                    ->setParameter('password', $password);
-
-        $result = $query->getOneOrNullResult();
-
-        if($result < 1)
+        if(isset($submit) && !is_null($token))
         {
-            $this->session->getFlashBag()->add('error', 'Incorrect login details');
-            $action = $this->redirect($this->generateUrl('login'));
+            $em = $this->getDoctrine()->getManager();
+            $query = $em->createQuery('SELECT u.id, u.name FROM AppBundle:Admin u WHERE u.name = :name AND u.password = :password')
+                ->setParameter('name', $name)
+                ->setParameter('password', $password);
+
+            $result = $query->getOneOrNullResult();
+
+            if ($result < 1)
+            {
+                $this->session->getFlashBag()->add('error', 'Incorrect login details');
+                $action = $this->redirectToRoute('login');
+            }
+            else
+            {
+                $admin = $query->getResult();
+                $this->session->start();
+                $this->session->set('admin_name', $admin[0]['name']);
+                $this->session->set('admin_id', $admin[0]['id']);
+                $action = $this->redirectToRoute('homepage');
+            }
         }
         else
         {
-            $this->session->start();
-            $this->session->set('admin', $name);
-            $action = $this->redirect($this->generateUrl('homepage'));
+            $action = $this->redirectToRoute('login');
         }
 
         return $action;
@@ -79,7 +90,8 @@ class AuthController extends Controller
     {
         $this->session->clear();
         $this->session->getFlashBag()->add('loggedOut', 'You have logged out');
-        return $this->render('login/index.html.twig');
+        $token = md5(rand(1, 100000));
+        return $this->render('login/index.html.twig', array('token' => $token));
     }
 
 }
