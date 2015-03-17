@@ -8,12 +8,7 @@ services:
 #        class: AppBundle\Directory\ClassName
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
 
-<<<<<<< HEAD
-    doctrine:
-        class: AppBundle\Controller\MasterController
-        arguments: [@doctrine.orm.entity_manager]
-=======
-     app.master_controller:
-         class: AppBundle\Controller\MasterController
-         arguments: ["@doctrine.orm.entity_manager"]
->>>>>>> d5ab6fd746bf1654846ac9a2ed46a38c8f3d01f5
+     #app.master_controller:
+      #   class: AppBundle\Controller\MasterController
+       #  arguments: ["@doctrine.orm.entity_manager"]
+
