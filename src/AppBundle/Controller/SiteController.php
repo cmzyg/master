@@ -43,8 +43,8 @@ class SiteController extends Controller
      * Moves base files to new directory
      *
      * @Route("make-site/{domain}", name="make-site")
-     * @Param string $domain
-     * @Return mixed
+     * @param string $domain
+     * @return mixed
      */
     public function makeSite($domain)
     {
