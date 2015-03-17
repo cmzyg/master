@@ -1,0 +1,359 @@
+/* All Responsive
+================================================== */  
+@media only screen and (max-width: 959px) {
+  
+}
+
+
+/* Tablet (Portrait) = Design for a width of 730px
+================================================== */
+
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+  
+  
+}
+
+/* Mobile (Portrait) = Design for a width of 280px
+================================================== */
+
+@media only screen and (max-width: 767px) {
+
+  .fixed-journey-details {
+    display: none !important;
+  }
+
+  .fixed-journey-map {
+    width: 92% !important;
+  }
+
+  .cont {
+    border: none !important;
+    padding: 0px !important;
+  }
+
+  .fullwidthbanner-container {
+    height: 530px !important;
+  }
+
+  .homepage-price-checker {
+    width: 100% !important;
+    height: 430px !important;
+  }
+
+  .labels {
+    margin-left: 0px !important;
+  }
+
+  .booking_field {
+    margin-left: 0px !important;
+  }
+
+  .black-stripe {
+    height: 80px !important;
+  }
+
+  .get-quote-text {
+    font-size: 150% !important;
+  }
+
+  #wowslider-container1 {
+    display:none;
+  }
+
+  .extra-space {
+    display: none;
+  }
+	
+	[id*="book-unit-form"]
+{
+	margin-left: 0;
+}
+
+.isotope-element, .ch-item {width: 240px !important; height: 160px !important;}
+  /*hide things*/
+  /*#navigation ul {
+    display: none;
+  }*/
+  
+  /*logo*/
+  #logo {
+	bottom:0px;
+	text-align:center;
+  }
+
+  #logo img {
+    display: inline-block;
+  }
+
+  #logo h1 a, #logo h2 a {
+    display: block;
+    float: none;
+  }
+  #header_features .shadow {
+	  font-size:10px;
+  }
+  #header_features i {
+	  margin-right:-3px;
+  }
+  #info-header {
+		float:left;  
+  }
+    #header_features{
+		
+		padding-left:-20px;	
+		padding-right:20px;	
+	}
+
+ 
+  /*navigation top menu*/
+  #navigation {
+    height: 70px;
+    width: 100%;
+    position: inherit;
+    top: auto;
+    left: auto;
+    right: auto;
+    margin-top: 0;
+    background: url("../images/responsive-nav.png") right center no-repeat;
+    font-size: 0.8em;
+  }
+
+  #navigation .selector {
+    width: 100%;
+    color: #fff;
+    font-weight: bold;
+    line-height: 70px;
+    text-indent: 40px;
+  }
+
+  #navigation .selector {
+    height: 70px;
+    width: 100%;
+    display: -moz-inline-box;
+    display: inline-block;
+    vertical-align: middle;
+    zoom: 1;
+    *display: inline;
+    cursor: pointer !important;
+  }
+
+
+
+  #navigation .selector:hover {
+    opacity: 1;
+    -moz-opacity: 1;
+    -webkit-opacity: 1;
+  }
+
+  #navigation .selector select:focus {
+    outline: 0;
+  }
+
+  #navigation .selector span {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  #navigation .selector select {
+    position: absolute;
+    top: 0px;
+    left: 0;
+    height: 70px;
+    background: none;
+    width: 100%;
+    font-size: 13px;
+    font-weight: 500;
+    color: #666 !important;
+    cursor: pointer;
+  }
+
+  #navigation .selector {
+    margin: 0;
+    padding: 0;
+    border: none;
+  }
+  /*display dropdown nav*/
+  #navigation .selector {
+    display: inline-block;
+  }
+  
+     .rs-caption-t{
+	  font-size:14px !important;
+	    line-height:22px !important;
+  }
+   .rs-caption-d{
+	  font-size:12px !important;
+	  line-height:14px !important;
+  }
+  
+  .rs-caption.rs-bottom { width: 100%!important; bottom: 26.3% !important; padding-left:40px !important; padding-right:40px !important;	}
+
+}
+
+
+/* Mobile (Landscape)
+================================================== */
+
+    /* Note: Design for a width of 480px */
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+	
+
+   .rs-caption-t{
+	  font-size:24px !important;
+	    line-height:22px !important;
+  }
+   .rs-caption-d{
+	  font-size:14px !important;
+	  line-height:14px !important;
+  }
+
+  .extra-space {
+    display: none;
+  }
+
+  /*hide things*/
+  /*
+  #navigation ul {
+    display: none;
+  }
+*/
+  /*logo*/
+  #logo {
+	bottom: 0;
+    text-align: center;
+  }
+
+  #logo img {
+    display: inline-block;
+  }
+
+  #logo h1 a, #logo h2 a {
+    display: block;
+    float: none;
+  }
+  #header_features .shadow {
+	  font-size:10px;
+  }
+  #header_features i {
+	  margin-right:-3px;
+  }
+  #info-header {
+		float:left;  
+  }
+    #header_features{
+		
+		padding-left:-20px;	
+		padding-right:20px;	
+	}
+
+ 
+  /*navigation top menu*/
+  #navigation {
+    height: 70px;
+    width: 100%;
+    position: inherit;
+    top: auto;
+    left: auto;
+    right: auto;
+    margin-top: 0;
+    background: url("../images/responsive-nav.png") right center no-repeat;
+  }
+
+  #navigation .selector {
+    width: 100%;
+    color: #fff;
+    font-weight: bold;
+    line-height: 70px;
+    text-indent: 40px;
+  }
+
+  #navigation .selector {
+    height: 70px;
+    width: 100%;
+    display: -moz-inline-box;
+    display: inline-block;
+    vertical-align: middle;
+    zoom: 1;
+    *display: inline;
+    cursor: pointer !important;
+  }
+
+
+
+  #navigation .selector:hover {
+    opacity: 1;
+    -moz-opacity: 1;
+    -webkit-opacity: 1;
+  }
+
+  #navigation .selector select:focus {
+    outline: 0;
+  }
+
+  #navigation .selector span {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  #navigation .selector select {
+    position: absolute;
+    top: 0px;
+    left: 0;
+    height: 70px;
+    background: none;
+    width: 100%;
+    font-size: 13px;
+    font-weight: 500;
+    color: #666 !important;
+    cursor: pointer;
+		-moz-appearance: none;
+    text-indent: 0.01px;
+    text-overflow: '';
+	color: rgba(0, 0, 0, 0) !important;
+  }
+
+  #navigation .selector {
+    margin: 0;
+    padding: 0;
+    border: none;
+  }
+  /*display dropdown nav*/
+  #navigation .selector {
+    display: inline-block;
+	width:100% !important;
+
+  }
+  
+  
+
+}
+
+
+
+
+
+@media only screen and (max-width: 320px) {
+
+  .extra-space {
+      height: 200px !important;
+  }
+
+  body {
+      background: none !important;
+  }
+
+  .social_icons {
+      margin-right: 43px !important;
+      text-align: center;
+  }
+
+  .mobile-admin-email {
+      display: block;
+  }
+
+}

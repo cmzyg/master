@@ -1,0 +1,37 @@
+RewriteEngine On
+RewriteCond %{HTTPS} !on
+RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
+
+RewriteRule  ^admin/settings/business-settings     admin/business-settings.php [NC,L] 
+RewriteRule  ^admin/settings/local-areas           admin/local-areas.php [NC,L] 
+RewriteRule  ^admin/settings/payment-options       admin/payment-options.php [NC,L] 
+RewriteRule  ^admin/settings/homepage              admin/homepage.php [NC,L] 
+RewriteRule  ^admin/settings/meter-rates           admin/meter-rates.php [NC,L] 
+RewriteRule  ^admin/settings/fixed-prices          admin/fixed-prices.php [NC,L] 
+RewriteRule  ^admin/settings/other-pages           admin/other-pages.php [NC,L] 
+RewriteRule  ^admin/settings/web-design            admin/web-design.php [NC,L] 
+RewriteRule  ^admin/settings/seo                   admin/seo.php [NC,L] 
+RewriteRule  ^admin/settings/vehicles-and-uplifts  admin/vehicles-and-uplifts.php [NC,L] 
+
+RewriteRule  ^admin/bookings/([0-9]+)/?$           admin/bookings.php?page=$1 [NC,L] 
+RewriteRule  ^admin/bookings/new/([0-9]+)/?$       admin/new.php?page=$1 [NC,L] 
+RewriteRule  ^admin/bookings/cancelled/([0-9]+)/?$ admin/cancelled.php?page=$1 [NC,L] 
+RewriteRule  ^admin/bookings/today/([0-9]+)/?$     admin/today.php?page=$1 [NC,L] 
+RewriteRule  ^admin/bookings/accepted/([0-9]+)/?$  admin/accepted.php?page=$1 [NC,L] 
+RewriteRule  ^admin/bookings/completed/([0-9]+)/?$ admin/completed.php?page=$1 [NC,L] 
+RewriteRule  ^admin/bookings/declined/([0-9]+)/?$  admin/declined.php?page=$1 [NC,L] 
+RewriteRule  ^admin/bookings/range/([0-9]+)/?$     admin/range.php?page=$1 [NC,L] 
+
+RewriteRule  ^admin/bookings/ordered-by-date/([0-9]+)/?$ admin/ordered-by-date.php?date=$1 [NC,L] 
+RewriteRule  ^admin/reset/([0-9]+)/?$ admin/reset.php?token=$1 [NC,L] 
+
+RewriteRule  ^admin/cancel-booking/([0-9]+)/?$     admin/cancel-booking.php?id=$1 [NC,L] 
+RewriteRule  ^admin/accept-booking/([0-9]+)/?$     admin/accept-booking.php?id=$1 [NC,L] 
+RewriteRule  ^admin/complete-booking/([0-9]+)/?$   admin/complete-booking.php?id=$1 [NC,L]
+RewriteRule  ^admin/decline-booking/([0-9]+)/?$    admin/decline-booking.php?id=$1 [NC,L]
+
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php?%{QUERY_STRING}
+

@@ -1,0 +1,131 @@
+.mobile-admin-email {
+    text-align: center;
+    display: none;
+}
+
+@media only screen and (max-width: 320px) {
+
+  .extra-space {
+      height: 200px !important;
+  }
+
+  body {
+      background: none !important;
+  }
+
+  .social_icons {
+      margin-right: 43px !important;
+      text-align: center;
+      margin-top: -20px;
+  }
+
+  .mobile-admin-email {
+      display: block;
+  }
+
+  .header-admin-email {
+  	  display: none;
+  }
+
+
+/*-------------------------------------
+/* Contact Page --------------------- */
+
+  .mobile-map {
+    width: 100% !important;
+    float: none !important;
+  }
+
+  .contact-items {
+      padding-left: 0px !important;
+  }
+
+  .mobile-icon {
+      display: none !important;
+  }
+
+
+
+/*-------------------------------------
+/* Fixed Journey Page---------------- */
+
+  .fixed-journey-map {
+      width: 90% !important;
+      margin-right: 10% !important;
+      float: left !important;
+  }
+
+  #js_hidden_total {
+      width: 100% !important;
+      max-width: 100% !important;
+      position: fixed !important;
+      margin-top: -20px !important;
+      border-radius: 0px !important;
+  }
+
+}
+
+
+
+
+@media only screen and (min-width: 321px) and (max-width: 480px) {
+
+  .extra-space {
+      height: 200px !important;
+  }
+
+  body {
+      background: none !important;
+  }
+
+  .social_icons {
+      margin-right: 130px !important;
+      text-align: center;
+      margin-top: -20px;
+  }
+
+  .mobile-admin-email {
+      display: block;
+  }
+
+  .header-admin-email {
+      display: none;
+  }
+
+
+/*-------------------------------------
+/* Contact Page --------------------- */
+
+  .mobile-map {
+    width: 100% !important;
+    float: none !important;
+  }
+
+  .contact-items {
+      padding-left: 0px !important;
+  }
+
+  .mobile-icon {
+      display: none !important;
+  }
+
+
+
+/*-------------------------------------
+/* Fixed Journey Page---------------- */
+
+  .fixed-journey-map {
+      width: 90% !important;
+      margin-right: 10% !important;
+      float: left !important;
+  }
+
+  #js_hidden_total {
+      width: 100% !important;
+      max-width: 100% !important;
+      position: fixed !important;
+      margin-top: -20px !important;
+      border-radius: 0px !important;
+  }
+
+}

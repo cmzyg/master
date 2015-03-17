@@ -1,0 +1,87 @@
+body {
+  color: #333;
+}
+
+body, input, button {
+  line-height: 1.4;
+  font: 13px Helvetica,arial,freesans,clean,sans-serif;
+}
+
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+#examples a {
+  text-decoration: underline;
+}
+
+#geocomplete { width: 200px}
+
+.map_canvas { 
+  width: 600px; 
+  height: 400px; 
+  margin: 10px 20px 10px 0;
+}
+
+#multiple li { 
+  cursor: pointer; 
+  text-decoration: underline; 
+}
+
+.homepage-text {
+  width: 100%;
+  text-align: center;
+}
+
+.booking-summary {
+  width: 100%; 
+  height: 33%; 
+  padding: 10px; 
+  text-align: center;
+}
+
+.booking-summary-black {
+  width: 100%; 
+  height: 33%; 
+  padding: 10px; 
+  text-align: center;
+  background-color: #000000;
+}
+
+.fixed-booking-summary {
+  width: 100%; 
+  height: 50%; 
+  padding: 10px; 
+  text-align: center;
+}
+
+.fixed-booking-summary-black {
+  width: 100%; 
+  height: 50%; 
+  padding: 10px; 
+  text-align: center;
+  background-color: #000000;
+}
+
+.booking-summary2 {
+  width: 100%; 
+  height: 25%; 
+  padding: 10px; 
+  text-align: center;
+}
+
+.booking-summary-black2 {
+  width: 100%; 
+  height: 25%; 
+  padding: 10px; 
+  text-align: center;
+  background-color: #000000;
+}
+
+.booking-summary-center {
+  position: relative;
+  top: 40%;
+  transform: translateY(-50%);
+ }
