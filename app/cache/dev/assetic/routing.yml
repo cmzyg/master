@@ -1,9 +1,0 @@
-_assetic:
-    resource: .
-    type: assetic
-_app:
-<<<<<<< HEAD
-    resource: 'C:\Users\Zygimantas\Desktop\master\app/config/routing_dev.yml'
-=======
-    resource: /Users/Zygis/Desktop/master/app/config/routing_dev.yml
->>>>>>> d5ab6fd746bf1654846ac9a2ed46a38c8f3d01f5
