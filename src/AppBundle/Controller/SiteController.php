@@ -39,7 +39,7 @@ class SiteController extends Controller
     }
 
     /**
-     * @Route("make-site/{domain}", name="make-site")
+     * @Route("make-site/domain/{domain}", name="make-site")
      */
     public function makeSite()
     {
