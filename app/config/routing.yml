@@ -5,3 +5,7 @@ app:
 post:
     resource: "@AppBundle/Controller/AuthController.php"
     type:     annotation
+
+get:
+    resource: "@AppBundle/Controller/SiteController.php"
+    type:     annotation

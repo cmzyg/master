@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use Doctrine\Entity;
+use Doctrine\ORM\EntityManager;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use AppBundle\Entity\Admin;
@@ -15,15 +16,18 @@ class MasterController extends Controller
 {
     private $request;
     private $session;
+    private $em;
+    private $test;
 
-    public function __construct()
+    public function __construct(EntityManager $em)
     {
         $this->request = Request::createFromGlobals();
         $this->session = new Session;
+        $this->em      = $em;
     }
 
     /**
-     * @Route("/", name="homepage")
+     * @Route("site", name="site")
      */
     public function indexAction()
     {
@@ -32,11 +36,9 @@ class MasterController extends Controller
             // return $this->redirect($this->generateUrl('login'));
         }
 
-        $name  = $this->session->get('admin');
-        $admin = $this->getAdminDetails(2);
-        $sites = $this->getManagedSites();
+        $siteID = $this->request->query->get('id');
 
-        return $this->render('master/index.html.twig', array('administrator' => $admin, 'sites' => $sites, 'name' => $name));
+        return $this->render('sites/index.html.twig', array('administrator' => $admin, 'sites' => $sites, 'name' => $name));
     }
 
 
@@ -80,5 +82,6 @@ class MasterController extends Controller
     {
         return $this->render('login/index.html.twig');
     }
+
 
 }
