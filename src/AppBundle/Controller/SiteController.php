@@ -38,12 +38,13 @@ class SiteController extends Controller
     }
 
     /**
-     * @Route("make-site", name="make-site")
+     * @Route("make-site/{domain}", name="make-site")
      */
     public function makeSite()
     {
+        $domain            = $this->request->query->get('domain');
         $originalDirectory = 'taxi/';
-        $newDirectory      = '../test';
+        $newDirectory      = '../test/' . $domain;
 
         // copy new folders
         $this->filesystem->mirror($originalDirectory, $newDirectory);
