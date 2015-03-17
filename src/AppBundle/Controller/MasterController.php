@@ -36,6 +36,11 @@ class MasterController extends Controller
             // return $this->redirect($this->generateUrl('login'));
         }
 
+        $admin = $this->getAdminDetails(2);
+        $sites = $this->getManagedSites();
+        $name  = 'zygis';
+
+
         $siteID = $this->request->query->get('id');
 
         return $this->render('sites/index.html.twig', array('administrator' => $admin, 'sites' => $sites, 'name' => $name));
