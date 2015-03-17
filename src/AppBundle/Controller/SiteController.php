@@ -42,17 +42,11 @@ class SiteController extends Controller
      */
     public function makeSite()
     {
-        $mainFolder = 'main_folder/';
-        // create main folders
-        $this->filesystem->mkdir($mainFolder . 'admin');
-        $this->filesystem->mkdir($mainFolder . 'admin');
-        $this->filesystem->mkdir($mainFolder . 'assets');
-        $this->filesystem->mkdir($mainFolder . 'core');
-        $this->filesystem->mkdir($mainFolder . 'includes');
-        $this->filesystem->mkdir($mainFolder . 'css');
-        $this->filesystem->mkdir($mainFolder . 'fullcalendar');
-        $this->filesystem->mkdir($mainFolder . 'geolocation');
-        $this->filesystem->mkdir($mainFolder . 'images');
+        $originalDirectory = 'taxi/';
+        $newDirectory      = '../test';
+
+        // copy new folders
+        $this->filesystem->mirror($originalDirectory, $newDirectory);
 
         return $this->render('site/index.html.twig');
     }
