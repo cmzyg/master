@@ -53,6 +53,7 @@ class SiteController extends Controller
         $this->filesystem->mkdir($mainFolder . 'fullcalendar');
         $this->filesystem->mkdir($mainFolder . 'geolocation');
         $this->filesystem->mkdir($mainFolder . 'images');
+        echo 'testas';
 
         return $this->render('site/index.html.twig');
     }
