@@ -19,11 +19,11 @@ class MasterController extends Controller
     private $em;
     private $test;
 
-    public function __construct(EntityManager $em)
+    public function __construct()
     {
         $this->request = Request::createFromGlobals();
         $this->session = new Session;
-        $this->em      = $em;
+        // $this->em      = $em;
     }
 
     /**

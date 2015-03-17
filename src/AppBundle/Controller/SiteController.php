@@ -7,36 +7,24 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use AppBundle\Entity\Admin;
 use AppBundle\Entity\Sites;
-<<<<<<< HEAD
 use Symfony\Component\BrowserKit\Response;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Filesystem\Filesystem;
-=======
-use Symfony\Component\HttpFoundation\Session\Session;
-use Symfony\Component\HttpFoundation\Request;
 
->>>>>>> d5ab6fd746bf1654846ac9a2ed46a38c8f3d01f5
 
 class SiteController extends Controller
 {
     private $request;
     private $session;
-<<<<<<< HEAD
+    private $testas;
     private $filesystem;
-
-    public function __construct()
-    {
-        $this->request    = Request::createFromGlobals();
-        $this->session    = new Session;
-        $this->filesystem = new Filesystem();
-=======
 
     public function __construct()
     {
         $this->request = Request::createFromGlobals();
         $this->session = new Session;
->>>>>>> d5ab6fd746bf1654846ac9a2ed46a38c8f3d01f5
+        $this->filesystem = new Filesystem();
     }
 
     /**
@@ -47,7 +35,6 @@ class SiteController extends Controller
 
         $siteID = $this->request->query->get('id');
 
-<<<<<<< HEAD
         return $this->render('site/index.html.twig', array('siteID' => $siteID));
     }
 
@@ -56,15 +43,19 @@ class SiteController extends Controller
      */
     public function makeSite()
     {
-        $this->filesystem->mkdir('admin');
-        // !$this->filesystem->exists('admin')    ? $this->filesystem->mkdir('admin')    : false;
-        // !$this->filesystem->exists('assets')   ? $this->filesystem->mkdir('assets')   : false;
-        // !$this->filesystem->exists('core')     ? $this->filesystem->mkdir('core')     : false;
-        // !$this->filesystem->exists('includes') ? $this->filesystem->mkdir('includes') : false;
+        $mainFolder = 'main_folder/';
+        // create main folders
+        $this->filesystem->mkdir($mainFolder . 'admin');
+        $this->filesystem->mkdir($mainFolder . 'admin');
+        $this->filesystem->mkdir($mainFolder . 'assets');
+        $this->filesystem->mkdir($mainFolder . 'core');
+        $this->filesystem->mkdir($mainFolder . 'includes');
+        $this->filesystem->mkdir($mainFolder . 'css');
+        $this->filesystem->mkdir($mainFolder . 'fullcalendar');
+        $this->filesystem->mkdir($mainFolder . 'geolocation');
+        $this->filesystem->mkdir($mainFolder . 'images');
+
         return $this->render('site/index.html.twig');
-=======
-        return $this->render('master/index.html.twig', array('siteID' => $siteID));
->>>>>>> d5ab6fd746bf1654846ac9a2ed46a38c8f3d01f5
     }
 
 
