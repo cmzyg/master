@@ -40,7 +40,6 @@ class SiteController extends Controller
 
     /**
      * @Route("make-site/{domain}", name="make-site")
-     * @Method("GET")
      */
     public function makeSite()
     {
@@ -51,7 +50,8 @@ class SiteController extends Controller
         // copy new folders
         $this->filesystem->mkdir($newDir);
         // $this->filesystem->mirror($originalDir, $newDir);
-        echo 'domain';
+
+        echo $domain;
 
         return $this->render('site/index.html.twig');
     }
