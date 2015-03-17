@@ -45,7 +45,7 @@ class SiteController extends Controller
     {
         $domain      = $this->request->query->get('domain');
         $originalDir = 'taxi/';
-        $newDir      = '../test/' . $domain;
+        $newDir      = '../sites/' . $domain;
 
         // copy new folders
         $this->filesystem->mkdir($newDir);
