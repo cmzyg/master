@@ -43,14 +43,12 @@ class SiteController extends Controller
      */
     public function makeSite($domain)
     {
-        $originalDir = 'taxi/';
-        $newDir      = '../sites/' . $domain;
+        $baseDir = 'taxi/';
+        $newDir  = '../sites/' . $domain;
 
         // copy new folders
         $this->filesystem->mkdir($newDir);
-        // $this->filesystem->mirror($originalDir, $newDir);
-
-        var_dump($domain);
+        $this->filesystem->mirror($baseDir, $newDir);
 
         return $this->render('site/index.html.twig');
     }
