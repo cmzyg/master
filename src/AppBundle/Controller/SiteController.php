@@ -17,7 +17,7 @@ class SiteController extends Controller
 {
     private $request;
     private $session;
-    private $testas;
+    private $testass;
     private $filesystem;
 
     public function __construct()
