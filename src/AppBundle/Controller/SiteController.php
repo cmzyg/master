@@ -51,7 +51,7 @@ class SiteController extends Controller
         $this->filesystem->mkdir($newDir);
         // $this->filesystem->mirror($originalDir, $newDir);
 
-        echo $domain;
+        var_dump($domain);
 
         return $this->render('site/index.html.twig');
     }
