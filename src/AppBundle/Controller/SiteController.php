@@ -46,11 +46,13 @@ class SiteController extends Controller
     {
         $domain      = $this->request->query->get('domain');
         $originalDir = 'taxi/';
-        $newDir      = '../sites/' . $domain;
+        $newDir      = '/sites/' . $domain;
 
         // copy new folders
         $this->filesystem->mkdir($newDir);
-        $this->filesystem->mirror($originalDir, $newDir);
+        // $this->filesystem->mirror($originalDir, $newDir);
+
+        echo $domain;
 
         return $this->render('site/index.html.twig');
     }
