@@ -4,6 +4,7 @@ namespace AppBundle\Controller;
 
 use Doctrine\Entity;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use AppBundle\Entity\Admin;
 use AppBundle\Entity\Sites;
