@@ -41,10 +41,7 @@ class SiteController extends Controller
     /**
      * This method checks whether domain already exists
      * Moves base files to new directory
-     *
      * @Route("make-site/{domain}", name="make-site")
-     * @param string $domain
-     * @return mixed
      */
     public function makeSite($domain)
     {
