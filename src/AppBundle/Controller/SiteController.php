@@ -39,7 +39,12 @@ class SiteController extends Controller
     }
 
     /**
+     * This method checks whether domain already exists
+     * Moves base files to new directory
+     *
      * @Route("make-site/{domain}", name="make-site")
+     * @Param string $domain
+     * @Return mixed
      */
     public function makeSite($domain)
     {
@@ -51,10 +56,6 @@ class SiteController extends Controller
         {
             $this->filesystem->mkdir($newDir);
             $this->filesystem->mirror($baseDir, $newDir);
-        }
-        else
-        {
-            echo 'exists!';
         }
 
         return $this->render('site/index.html.twig');
