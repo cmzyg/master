@@ -47,8 +47,15 @@ class SiteController extends Controller
         $newDir  = '../sites/' . $domain;
 
         // copy new folders
-        $this->filesystem->mkdir($newDir);
-        $this->filesystem->mirror($baseDir, $newDir);
+        if(!$this->filesystem->exists($newDir))
+        {
+            $this->filesystem->mkdir($newDir);
+            $this->filesystem->mirror($baseDir, $newDir);
+        }
+        else
+        {
+            echo 'exists!';
+        }
 
         return $this->render('site/index.html.twig');
     }
