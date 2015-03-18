@@ -23,6 +23,26 @@ class Sites {
      */
     protected $domain;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     * */
+    protected $dbhost;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     * */
+    protected $dbuser;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     * */
+    protected $dbpass;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     * */
+    protected $dbname;
+
 
     public function getDomain()
     {
@@ -32,6 +52,26 @@ class Sites {
     public function getID()
     {
         return $this->id;
+    }
+
+    public function getDbHost()
+    {
+        return $this->dbhost;
+    }
+
+    public function getDbUser()
+    {
+        return $this->dbuser;
+    }
+
+    public function getDbPass()
+    {
+        return $this->dbpass;
+    }
+
+    public function getDbName()
+    {
+        return $this->dbname;
     }
 
 }
