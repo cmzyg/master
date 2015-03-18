@@ -1,10 +1,12 @@
 <h2>Domain: <strong>{{ siteInfo.domain }}</strong></h2>
 <br />
-<h3>DB HOST</h3>
-<p><input type="text" name="dbhost" value="{{ siteConfig.dbhost }}" /></p>
-<h3>DB USER</h3>
-<p><input type="text" name="dbuser" value="{{ siteConfig.dbuser }}" /></p>
-<h3>DB PASS</h3>
-<p><input type="password" name="dbpass" value="{{ siteConfig.dbpass }}" /></p>
-<h3>DB NAME</h3>
-<p><input type="text" name="dbname" value="{{ siteConfig.dbname }}" /></p>
+<form method="POST" action="../process-site">
+    <h3>DB HOST</h3>
+    <p><input type="text" name="dbhost" value="{{ siteConfig.dbhost }}" /></p>
+    <h3>DB USER</h3>
+    <p><input type="text" name="dbuser" value="{{ siteConfig.dbuser }}" /></p>
+    <h3>DB PASS</h3>
+    <p><input type="password" name="dbpass" value="{{ siteConfig.dbpass }}" /></p>
+    <h3>DB NAME</h3>
+    <p><input type="text" name="dbname" value="{{ siteConfig.dbname }}" /></p>
+</form>
