@@ -31,7 +31,7 @@ class SiteController extends Controller
     {
         if(!is_null($id))
         {
-            if($this->siteExists())
+            if($this->siteExists($id))
             {
                 $site = $this->getSite($id);
                 $siteInfo = array();
