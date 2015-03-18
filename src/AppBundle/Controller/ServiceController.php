@@ -10,9 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class ServiceController extends Controller
 {
-    private $request;
-    private $session;
-    private $em;
+    protected $em;
 
     public function __construct(EntityManager $em)
     {
