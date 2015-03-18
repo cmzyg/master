@@ -19,8 +19,8 @@ class SiteController extends Controller
 
     public function __construct()
     {
-        $this->request = Request::createFromGlobals();
-        $this->session = new Session;
+        $this->request    = Request::createFromGlobals();
+        $this->session    = new Session;
         $this->filesystem = new Filesystem();
     }
 
@@ -81,7 +81,7 @@ class SiteController extends Controller
 
     private function siteExists($id)
     {
-        $em = $this->getDoctrine()->getManager();
+        $em    = $this->getDoctrine()->getManager();
         $query = $em->createQuery("SELECT u.id FROM AppBundle:Sites u WHERE u.id = :id")
                     ->setParameter('id', $id);
 
