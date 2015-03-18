@@ -56,7 +56,7 @@ class SiteController extends Controller
     private function getSite($id)
     {
         $em    = $this->getDoctrine()->getManager();
-        $query = $em->createQuery("SELECT * FROM sites u WHERE id u = :id")
+        $query = $em->createQuery("SELECT u.domain, u.id FROM AppBundle:sites u WHERE u.id = :id")
                     ->setParameter('id', $id);
 
         return $query->getResult();
