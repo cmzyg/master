@@ -2,13 +2,7 @@
 
 namespace AppBundle\Controller;
 
-use Doctrine\Entity;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use AppBundle\Entity\Admin;
-use AppBundle\Entity\Sites;
-use Symfony\Component\BrowserKit\Response;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Filesystem\Filesystem;
@@ -32,9 +26,7 @@ class SiteController extends Controller
      */
     public function indexAction($id)
     {
-
         $siteID = $id;
-
         return $this->render('site/index.html.twig', array('siteID' => $siteID));
     }
 
