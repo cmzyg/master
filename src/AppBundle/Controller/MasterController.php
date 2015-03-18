@@ -18,11 +18,11 @@ class MasterController
     private $session;
     private $em;
 
-    public function __construct(EntityManager $em)
+    public function __construct()
     {
         $this->request = Request::createFromGlobals();
         $this->session = new Session;
-        $this->em      = $em;
+        // $this->em      = $em;
     }
 
     /**
