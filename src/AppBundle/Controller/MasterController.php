@@ -20,6 +20,7 @@ class MasterController extends ServiceController
 
     public function __construct()
     {
+        parent::__construct();
         $this->request = Request::createFromGlobals();
         $this->session = new Session;
     }
