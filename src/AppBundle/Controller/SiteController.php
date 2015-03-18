@@ -57,7 +57,7 @@ class SiteController extends Controller
     {
         $em    = $this->getDoctrine()->getManager();
         $query = $em->createQuery("SELECT * FROM sites u WHERE id u = :id")
-                    ->setParam('id', $id);
+                    ->setParameter('id', $id);
 
         return $query->results();
     }
