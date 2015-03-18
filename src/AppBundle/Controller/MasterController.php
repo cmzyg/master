@@ -13,17 +13,15 @@ use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\HttpFoundation\Request;
 
 
-class MasterController extends Controller
+class MasterController extends ServiceController
 {
     private $request;
     private $session;
-    private $em;
 
-    public function __construct(EntityManager $em)
+    public function __construct()
     {
         $this->request = Request::createFromGlobals();
         $this->session = new Session;
-        $this->em      = $em;
     }
 
     /**
@@ -31,6 +29,7 @@ class MasterController extends Controller
      */
     public function indexAction()
     {
+        var_dump($this->em); die;
         if(!$this->isLoggedIn())
         {
             // return $this->redirect($this->generateUrl('login'));
