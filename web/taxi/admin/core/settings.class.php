@@ -1,12 +1,19 @@
 <?php
+use JeroenDesloovere\Geolocation\Geolocation;
 
 class Settings extends Controller {
 
 
     // ============ UPDATE GENERAL SETTINGS  ============ >>>
 
-	public function updateSettings($lat, $lon)
+	public function update_general_settings()
 	{
+		require_once('core/geolocation.class.php');
+		$map_location = $_POST['map_location'];
+		$result       = Geolocation::getCoordinates($map_location);
+		$latitude     = (string)$result['latitude'];
+        $longitude    = (string)$result['longitude'];
+
         // PUT POST VALUES INTO AN ARRAY
 		$array_settings = array(
 			'contact_name'          => $this->filter($_POST['contact_name']),
@@ -16,14 +23,18 @@ class Settings extends Controller {
 			'operator_licence'      => $this->filter($_POST['operator_licence']),
 			'timezone'              => $this->filter($_POST['timezone']),
 			'company_address'       => $this->filter($_POST['company_address']),
+			'map_location'          => $this->filter($_POST['map_location']),
 			'website_email_address' => $this->filter($_POST['website_email_address']),
 			'licencing_authority'   => $this->filter($_POST['licencing_authority']),
-			'latitude'              => $lat,
-			'longitude'             => $lon
+			'contact_phone'         => $this->filter($_POST['contact_phone']),
+			'bookings_phone'        => $this->filter($_POST['bookings_phone']),
+			'expiry_date'           => date('Y-m-d', strtotime($this->filter($_POST['expiry_date']))),
+			'latitude'              => $latitude,
+			'longitude'             => $longitude
 		);
 
         // UPDATE SETTINGS
-        $query = 'UPDATE settings SET contact_name = ?, email_address = ?, website_phone = ?, company_name = ?, operator_licence = ?, timezone = ?, company_address = ?, website_email_address = ?, licencing_authority = ?, latitude = ?, longitude = ?';
+        $query = 'UPDATE settings SET contact_name = ?, email_address = ?, website_phone = ?, company_name = ?, operator_licence = ?, timezone = ?, company_address = ?, map_location = ?, website_email_address = ?, licencing_authority = ?, contact_phone = ?, bookings_phone = ?, expiry_date = ?, latitude = ?, longitude = ?';
 		$this->update($query, $array_settings);
 
 		// SET UP A SUCCESS MESSAGE
@@ -517,6 +528,8 @@ class Settings extends Controller {
 		$area4     = $this->filter($_POST['area4']);
 		$area5     = $this->filter($_POST['area5']);
 		$area6     = $this->filter($_POST['area6']);
+		$area7     = $this->filter($_POST['area7']);
+		$area8     = $this->filter($_POST['area8']);
 		
 		// GENERATE SEO FOR EACH AREA
 		$meta_keywords_main_area = "$main_area taxi, taxi $main_area, $main_area taxis, $main_area cab, $main_area cabs, cab $main_area, cabs $main_area, taxi to $main_area, cab to $main_area";
@@ -525,6 +538,8 @@ class Settings extends Controller {
 		$meta_keywords_area4     = "$area4 taxi, taxi $area4, $area4 taxis, $area4 cab, $area4 cabs, cab $area4, cabs $area4, taxi to $area4, cab to $area4";
 		$meta_keywords_area5     = "$area5 taxi, taxi $area5, $area5 taxis, $area5 cab, $area5 cabs, cab $area5, cabs $area5, taxi to $area5, cab to $area5";
 		$meta_keywords_area6     = "$area6 taxi, taxi $area6, $area6 taxis, $area6 cab, $area6 cabs, cab $area6, cabs $area6, taxi to $area6, cab to $area6";
+		$meta_keywords_area7     = "$area7 taxi, taxi $area7, $area7 taxis, $area7 cab, $area7 cabs, cab $area7, cabs $area7, taxi to $area7, cab to $area7";
+		$meta_keywords_area8     = "$area8 taxi, taxi $area8, $area8 taxis, $area8 cab, $area8 cabs, cab $area8, cabs $area8, taxi to $area8, cab to $area8";
 
 
         // PUT POST VALUES INTO AN ARRAY
@@ -535,18 +550,22 @@ class Settings extends Controller {
 			'area4'                   => $this->filter($_POST['area4']),
 			'area5'                   => $this->filter($_POST['area5']),
 			'area6'                   => $this->filter($_POST['area6']),
+			'area7'                   => $this->filter($_POST['area7']),
+			'area8'                   => $this->filter($_POST['area8']),
 			'meta_keywords_main_area' => $meta_keywords_main_area,
 			'meta_keywords_area2'     => $meta_keywords_area2,
 			'meta_keywords_area3'     => $meta_keywords_area3,
 			'meta_keywords_area4'     => $meta_keywords_area4,
 			'meta_keywords_area5'     => $meta_keywords_area5,
 			'meta_keywords_area6'     => $meta_keywords_area6,
+			'meta_keywords_area7'     => $meta_keywords_area7,
+			'meta_keywords_area8'     => $meta_keywords_area8,
 			'latitude'                => $latitude,
 			'longitude'               => $longitude
 		);
 
 		// INSERT SETTINGS INTO THE DATABASE
-		$query = 'UPDATE settings SET main_area = ?, area2 = ?, area3 = ?, area4 = ?, area5 = ?, area6 = ?, meta_keywords_main_area = ?, meta_keywords_area2 = ?, meta_keywords_area3 = ?, meta_keywords_area4 = ?, meta_keywords_area5 = ?, meta_keywords_area6 = ?, latitude = ?, longitude = ?';
+		$query = 'UPDATE settings SET main_area = ?, area2 = ?, area3 = ?, area4 = ?, area5 = ?, area6 = ?, area7 = ?, area8 = ?, meta_keywords_main_area = ?, meta_keywords_area2 = ?, meta_keywords_area3 = ?, meta_keywords_area4 = ?, meta_keywords_area5 = ?, meta_keywords_area6 = ?, meta_keywords_area7 = ?, meta_keywords_area8 = ?, latitude = ?, longitude = ?';
 		$this->update($query, $array_settings);
 
 		$this->set_flashdata('Success', '<div class="update-nag">Settings Updated</div>');
@@ -652,10 +671,11 @@ class Settings extends Controller {
 			$this->filter($_POST['estate_seats']),
 			$this->filter($_POST['estate_large_bags']),
 			$this->filter($_POST['estate_small_bags']),
-			$this->filter($_POST['estate_status'])
+			$this->filter($_POST['estate_status']),
+			$this->filter($_POST['pound_or_percentage'])
 		);
 
-		$this->update('UPDATE vehicles SET uplift = ?, seats = ?, large_bags = ?, small_bags = ?, status = ? WHERE type = "Estate"', $array_vehicles);
+		$this->update('UPDATE vehicles SET uplift = ?, seats = ?, large_bags = ?, small_bags = ?, status = ?, uplift_units = ? WHERE type = "Estate"', $array_vehicles);
 
 		return $this;
 	}

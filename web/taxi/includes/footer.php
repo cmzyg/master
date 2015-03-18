@@ -88,6 +88,12 @@ $payment_options = $database->fetch();
                   <h5> <span><strong>Licenced Hire Service</strong></span> </h5>
                    <div class="content">
                     <div><img style="margin: 0 auto;" src='<?php echo $other_pages['footer_fully_licenced_service_image']; ?>' /></div>
+                    <br />
+                    <ul>
+                      <p style='font-size: 0.9em;'>Operator Licence: <?php echo $general_settings['operator_licence']; ?></p>
+                      <p style='font-size: 0.9em;'>Licencing Authority: <?php echo $general_settings['licencing_authority']; ?></p>
+                    </ul>
+
                  
                     </div>
                 </div>

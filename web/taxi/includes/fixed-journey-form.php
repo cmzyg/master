@@ -25,7 +25,7 @@
 
 
       <div class="form-item form-type-textfield form-item-subject">
-        <label>Additional Notes/ Requirements </label>
+        <label>Flight Details/ Additional Notes/ Requirements </label>
         <textarea id="note" name="note" class="form-text" cols="100" style="width:100%; height: 140px;"></textarea>
       </div>
 

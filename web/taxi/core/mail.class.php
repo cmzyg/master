@@ -90,23 +90,24 @@ class Mail extends Controller {
 
 
     // get website email address
-    // $this->select('SELECT website_email_address FROM settings');
-    // $array = $this->fetch();
+    $this->select('SELECT * FROM settings');
+    $array = $this->fetch();
 
  
         // send an email to customer
         require("mailer/class.phpmailer.php");
         $mail = new PHPMailer();
 
-        $mail->From = "from@example.com";
-        $mail->FromName = "Mailer";
-        $mail->AddAddress("z.simkus@yahoo.com");
+        $mail->From = $array['backend_email_address'];
+        $mail->FromName = "Taxi Website";
+        $mail->AddAddress($array['website_email_address']);
+        $mail->AddAddress($array['backend_email_address']);
 
         $mail->WordWrap = 50;
         $mail->IsHTML(true);                                  
 
         $mail->Subject = "New Query";
-        $mail->Body    = 'labas';
+        $mail->Body    = $message;
         $mail->AltBody = "New Query";
 
         if(!$mail->Send())

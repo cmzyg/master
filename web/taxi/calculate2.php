@@ -100,16 +100,28 @@ else
 // estate uplift
 if($_POST['estate'] == "1")
 {
-  $estate_uplift       = $payment * $estate['uplift'] / 100;
-  $_SESSION['estate']  = $_POST['estate'];
-  $cars++;
+     // if units are percentages....
+    if($estate['uplift_units'] == 'Percentages')
+    {
+        $estate_uplift = $payment * $estate['uplift'] / 100;      
+    }
+    // otherwise units are pounds
+    else
+    {
+        $estate_uplift = $estate['uplift'];
+    }
+    
+    $_SESSION['estate'] = $_POST['estate'];  
+    $cars++;
 }
 else
 {
-  $estate_uplift = 0;
-  $estate_uplift_final = 0;
-  $_SESSION['estate']  = 0;
+    $estate_uplift       = 0;
+    $estate_uplift_final = 0;
+    $_SESSION['estate']  = 0;
 }
+
+
 
 
 // executive uplift

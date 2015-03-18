@@ -7,8 +7,8 @@ error_reporting(-1);
 date_default_timezone_set('Europe/London');
 
 // set admin url
-$admin_url  = 'https://yateley-taxicabs.co.uk/admin/';
-$site_url   = 'https://yateley-taxicabs.co.uk/';
+$admin_url  = 'http://www.aylesburytaxicabs.co.uk/admin/';
+$site_url   = 'http://www.aylesburytaxicabs.co.uk/';
 $site_name  = 'Taxi Booking';
 
 ?>

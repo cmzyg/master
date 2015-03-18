@@ -114,7 +114,7 @@ class Bookings extends Controller {
             $this->return_date = 'No return';
         }
 
-        if($_POST['meet_and_greet_service'] !== '')
+        if($_POST['meet_and_greet_service'] != 0)
         {
             $this->meet_and_greet = 'Yes';
         }

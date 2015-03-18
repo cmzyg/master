@@ -20,9 +20,11 @@
       <div class="four columns"> 
         <!--Site menu-->
          <br />
-         <h4 class='right'>Call Us Now</h4>
-         <ul><li class="right" style='margin-left:20px'><i class='icon-phone'></i><span style="font-size:2em"><?php echo $general_settings['website_phone']; ?></span></li></ul>
-         <h5 class='right'><?php echo $general_settings['free_text']; ?></h5>
+         <div style="margin-right: 5px;">
+             <h4 class='right'>Call Us Now</h4>
+             <ul><li class="right" style='margin-left:20px'><i class='icon-phone'></i><span style="font-size:2em"><?php echo $general_settings['website_phone']; ?></span></li></ul>
+             <h5 class='right'><?php echo $general_settings['free_text']; ?></h5>
+         </div>
         <!--end of Site menu--> 
       </div>
     </div>

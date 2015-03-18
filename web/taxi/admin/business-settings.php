@@ -84,8 +84,18 @@ $values     = $settings->getSettings();
 </tr>
 
 <tr valign="top">
+<th scope="row"><label for="blogname">Contact Phone</label></th>
+<td><input name="contact_phone" type="text" id="blogname" value="<?php echo $values['contact_phone']; ?>" class="regular-text" /></td>
+</tr>
+
+<tr valign="top">
 <th scope="row"><label for="blogname">Email Address</label></th>
 <td><input name="email_address" type="text" id="blogname" value="<?php echo $values['email_address']; ?>" class="regular-text" /></td>
+</tr>
+
+<tr valign="top">
+<th scope="row"><label for="blogname">Bookings Phone</label></th>
+<td><input name="bookings_phone" type="text" id="blogname" value="<?php echo $values['bookings_phone']; ?>" class="regular-text" /></td>
 </tr>
 
 <tr valign="top">
@@ -109,8 +119,18 @@ $values     = $settings->getSettings();
 </tr>
 
 <tr valign="top">
+<th scope="row"><label for="blogname">Map Location</label></th>
+<td><input name="map_location" type="text" id="blogname" value="<?php echo $values['map_location']; ?>" class="regular-text" /></td>
+</tr>
+
+<tr valign="top">
 <th scope="row"><label for="blogname">Operator Licence</label></th>
 <td><input name="operator_licence" type="text" id="blogname" value="<?php echo $values['operator_licence']; ?>" class="regular-text" /></td>
+</tr>
+
+<tr valign="top">
+<th scope="row"><label for="blogname">Expiry Date</label></th>
+<td><input name="expiry_date" type="text" id="blogname" value="<?php echo date('d-m-Y', strtotime($values['expiry_date'])); ?>" class="regular-text" /></td>
 </tr>
 
 <tr valign="top">

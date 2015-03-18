@@ -98,23 +98,24 @@ $message = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http
       </html>';
 
 
-       // get website email address
-       $database->select('SELECT website_email_address FROM settings');
-       $array = $database->fetch();
+        // get website email address
+        $database->select('SELECT * FROM settings');
+        $array = $database->fetch();
 
  
         // send an email to customer
         require("core/mailer/class.phpmailer.php");
         $mail = new PHPMailer();
 
-        $mail->From = $array['website_email_address'];
-        $mail->FromName = $fullname;
-        $mail->AddAddress("z.simkus@yahoo.com");
+        $mail->From = $array['backend_email_address'];
+        $mail->FromName = $array['company_name'];
+        $mail->AddAddress($array['website_email_address'], '');
+        $mail->AddAddress($array['backend_email_address'], '');
 
         $mail->WordWrap = 50;
         $mail->IsHTML(true);                                  
 
-        $mail->Subject = $subject;
+        $mail->Subject = "New Query";
         $mail->Body    = $message;
         $mail->AltBody = "New Query";
 
@@ -124,8 +125,8 @@ $message = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http
             echo "Mailer Error: " . $mail->ErrorInfo;
             exit;
         }
-         
-        $controller->redirect('mail-sent');
+
+        header('location: mail-sent');
         
     
 

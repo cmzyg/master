@@ -1916,3 +1916,17 @@ Stack trace:
 [03-Oct-2014 15:49:21 UTC] PHP Notice:  Undefined index: homepage_testimonial_author_2 in /home/yateley/public_html/admin/core/settings.class.php on line 103
 [04-Oct-2014 17:24:02 UTC] PHP Notice:  Undefined index: timezone in /home/yateley/public_html/admin/core/settings.class.php on line 17
 [04-Oct-2014 19:30:22 UTC] PHP Fatal error:  Call to undefined method Bookings::acceptBooking() in /home/yateley/public_html/admin/accept-booking.php on line 14
+[07-Nov-2014 18:57:40 UTC] PHP Notice:  A session had already been started - ignoring session_start() in /home/yateley/public_html/admin/core/connect.php on line 3
+[07-Nov-2014 18:59:06 UTC] PHP Notice:  A session had already been started - ignoring session_start() in /home/yateley/public_html/admin/core/connect.php on line 3
+[12-Nov-2014 21:42:12 Europe/London] PHP Notice:  Undefined index: bookings_phone in /home/yateley/public_html/admin/business-settings.php on line 98
+[12-Nov-2014 21:43:27 UTC] PHP Notice:  Undefined index: timezone in /home/yateley/public_html/admin/core/settings.class.php on line 17
+[12-Nov-2014 21:43:27 UTC] PHP Notice:  Undefined index: business_phone in /home/yateley/public_html/admin/core/settings.class.php on line 22
+[12-Nov-2014 21:43:27 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'business_phone' in 'field list'' in /home/yateley/public_html/admin/core/database.class.php:25
+Stack trace:
+#0 /home/yateley/public_html/admin/core/database.class.php(25): PDOStatement->execute()
+#1 /home/yateley/public_html/admin/core/settings.class.php(30): Database->update('UPDATE settings...', Array)
+#2 /home/yateley/public_html/admin/process-settings.php(24): Settings->updateSettings('51.3411577', '-0.825203')
+#3 {main}
+  thrown in /home/yateley/public_html/admin/core/database.class.php on line 25
+[12-Nov-2014 21:44:09 UTC] PHP Notice:  Undefined index: timezone in /home/yateley/public_html/admin/core/settings.class.php on line 17
+[12-Nov-2014 21:45:41 UTC] PHP Notice:  Undefined index: timezone in /home/yateley/public_html/admin/core/settings.class.php on line 17

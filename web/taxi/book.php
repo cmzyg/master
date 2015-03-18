@@ -645,7 +645,7 @@ $(function(){
 
 
       <div class="form-item form-type-textfield form-item-subject">
-        <label>Additional Notes/ Requirements / Flight Details </label>
+        <label>Flight Details/ Additional Notes/ Requirements </label>
         <textarea id="note" name="note" class="form-text" cols="100" style="width:100%; height: 140px;"></textarea>
       </div>
 
@@ -806,8 +806,8 @@ $(function(){
       <br /><br />
 
       <br /><br /><br />
-      <div class="form-actions form-wrapper" id="submit-edit-actions" style="float:left">
-        <input type="submit" id="submit-contact" value="Continue" style="cursor: pointer; width:170px; margin: 0 auto; text-align: center; float: right" class="form-submit" />
+      <div class="form-actions form-wrapper" id="submit-edit-actions">
+        <input type="submit" id="submit-contact" value="Continue" style="cursor: pointer; width:170px; float:left; text-align: center;" class="form-submit" />
       </div>
       
 

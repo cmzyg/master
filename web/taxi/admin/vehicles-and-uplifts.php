@@ -100,6 +100,25 @@ $minicoach = $database->fetch();
 	document.body.className = document.body.className.replace('no-js','js');
 </script>
 
+<script>
+function units()
+{
+   var units         = document.getElementById('pound_or_percentage');
+   var estate_uplift = document.getElementById('estate_uplift');
+
+   if(units.selectedIndex == 0)
+   {
+      estate_uplift.className = "";
+      estate_uplift.className = "pound-icon";
+   }
+   else if(units.selectedIndex == 1)
+   {
+      estate_uplift.className = "";
+      estate_uplift.className = "percentage-icon";
+   }
+}
+</script>
+
 	
 <div id="wpwrap">
 <a tabindex="1" href="#wpbody-content" class="screen-reader-shortcut">Skip to main content</a>
@@ -140,12 +159,18 @@ $minicoach = $database->fetch();
 
 <tr valign="top">
 <th scope="row"><label for="blogname">Estate Car</label></th>
-<td>Uplift <input name="estate_uplift_percentage" style="text-align:center; width:100px;" type="text" id="blogname" value="<?php echo $estate['uplift']; ?>" class="regular-text percentage-icon" /></td>
+<td>Uplift <input name="estate_uplift_percentage" style="text-align:center; width:100px;" type="text" id="estate_uplift" value="<?php echo $estate['uplift']; ?>" class="regular-text <?php if($estate['uplift_units'] == 'Percentages') { echo "percentage-icon"; } else { echo "pound-icon"; } ?>" /></td>
 <td>Seats <input name="estate_seats" style="text-align:center; width:100px;" type="text" id="blogname" value="<?php echo $estate['seats']; ?>" class="regular-text" /></td>
 <td>Large Bags <input name="estate_large_bags" style="text-align:center; width:100px;" type="text" id="blogname" value="<?php echo $estate['large_bags']; ?>" class="regular-text" /></td>
 <td>Small Bags <input name="estate_small_bags" style="text-align:center; width:100px;" type="text" id="blogname" value="<?php echo $estate['small_bags']; ?>" class="regular-text" /></td>
 <td><select name="estate_status"><option value='active' <?php if($estate['status'] == 'active') { echo "selected='selected'"; } ?>>Active</option><option value='inactive' <?php if($estate['status'] == 'inactive') { echo "selected='selected'"; } ?>>Inactive</option><select></td>
 </tr>
+
+<tr valign="top">
+<th scope="row"><label for="blogname"></label></th>
+<td>Units&nbsp; <select onchange="units()" name="pound_or_percentage" style="width:120px" id="pound_or_percentage"><option value='Pounds' <?php if($estate['uplift_units'] == 'Pounds') { echo "selected='selected'"; } ?>>Pounds</option><option value='Percentages' <?php if($estate['uplift_units'] == 'Percentages') { echo "selected='selected'"; } ?>>Percentages</option><select></td>
+</tr>
+
 
 <tr valign="top">
 <th scope="row"><label for="blogname">Executive Car</label></th>
