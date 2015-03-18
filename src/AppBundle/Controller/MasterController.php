@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\HttpFoundation\Request;
 
 
-class MasterController
+class MasterController extends Controller
 {
     private $request;
     private $session;
