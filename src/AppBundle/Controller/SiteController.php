@@ -16,14 +16,12 @@ class SiteController extends Controller
     private $request;
     private $session;
     private $filesystem;
-    private $em;
 
     public function __construct()
     {
         $this->request = Request::createFromGlobals();
         $this->session = new Session;
         $this->filesystem = new Filesystem();
-        $this->em = $this->getDoctrine()->getManager();
     }
 
     /**
@@ -31,8 +29,8 @@ class SiteController extends Controller
      */
     public function indexAction($id)
     {
-        $siteID = $id;
-        return $this->render('site/index.html.twig', array('siteID' => $siteID));
+        $site = $this->getSite($id);
+        return $this->render('site/index.html.twig', array('site' => $site));
     }
 
     /**
@@ -53,6 +51,15 @@ class SiteController extends Controller
         }
 
         return $this->render('site/index.html.twig');
+    }
+
+    private function getSite($id)
+    {
+        $em    = $this->getDoctrine()->getManager();
+        $query = $em->sqlBuilder("SELECT * FROM sites u WHERE id u = :id")
+                    ->setParam('id', $id);
+
+        return $query->results();
     }
 
 
