@@ -31,7 +31,7 @@ class MasterController extends Controller
      */
     public function indexAction()
     {
-        $entityManager = $this->em->getDoctrine()->getManager();
+        var_dump($this->em);
         if(!$this->isLoggedIn())
         {
             // return $this->redirect($this->generateUrl('login'));
