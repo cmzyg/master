@@ -29,11 +29,21 @@ class SiteController extends Controller
      */
     public function indexAction($id)
     {
-        $site = $this->getSite($id);
-        $site_info           = array();
-        $site_info['domain'] = $site[0]['domain'];
-        $site_info['id']     = $site[0]['id'];
-        return $this->render('site/index.html.twig', array('site' => $site_info));
+        if(!is_null($id))
+        {
+            $site       = $this->getSite($id);
+            $siteInfo   = array();
+            $siteConfig = array();
+
+            $siteInfo['domain']   = $site[0]['domain'];
+            $siteInfo['id']       = $site[0]['id'];
+            $siteConfig['dbhost'] = $site[0]['dbhost'];
+            $siteConfig['dbuser'] = $site[0]['dbuser'];
+            $siteConfig['dbpass'] = $site[0]['dbpass'];
+            $siteConfig['dbname'] = $site[0]['dbname'];
+        }
+
+        return $this->render('site/index.html.twig', array('siteInfo' => $siteInfo, 'siteConfig' => $siteConfig));
     }
 
     /**
@@ -59,7 +69,7 @@ class SiteController extends Controller
     private function getSite($id)
     {
         $em    = $this->getDoctrine()->getManager();
-        $query = $em->createQuery("SELECT u.domain, u.id FROM AppBundle:Sites u WHERE u.id = :id")
+        $query = $em->createQuery("SELECT u.domain, u.id, u.dbhost, u.dbuser, u.dbpass, u.dbname FROM AppBundle:Sites u WHERE u.id = :id")
                     ->setParameter('id', $id);
 
         return $query->getResult();
