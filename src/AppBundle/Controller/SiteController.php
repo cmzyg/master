@@ -31,19 +31,23 @@ class SiteController extends Controller
     {
         if(!is_null($id))
         {
-            $site       = $this->getSite($id);
-            $siteInfo   = array();
-            $siteConfig = array();
+            if($this->siteExists())
+            {
+                $site = $this->getSite($id);
+                $siteInfo = array();
+                $siteConfig = array();
 
-            $siteInfo['domain']   = $site[0]['domain'];
-            $siteInfo['id']       = $site[0]['id'];
-            $siteConfig['dbhost'] = $site[0]['dbhost'];
-            $siteConfig['dbuser'] = $site[0]['dbuser'];
-            $siteConfig['dbpass'] = $site[0]['dbpass'];
-            $siteConfig['dbname'] = $site[0]['dbname'];
+                $siteInfo['domain']   = $site[0]['domain'];
+                $siteInfo['id']       = $site[0]['id'];
+                $siteConfig['dbhost'] = $site[0]['dbhost'];
+                $siteConfig['dbuser'] = $site[0]['dbuser'];
+                $siteConfig['dbpass'] = $site[0]['dbpass'];
+                $siteConfig['dbname'] = $site[0]['dbname'];
+
+                return $this->render('site/index.html.twig', array('siteInfo' => $siteInfo, 'siteConfig' => $siteConfig));
+            }
         }
 
-        return $this->render('site/index.html.twig', array('siteInfo' => $siteInfo, 'siteConfig' => $siteConfig));
     }
 
     /**
@@ -73,6 +77,15 @@ class SiteController extends Controller
                     ->setParameter('id', $id);
 
         return $query->getResult();
+    }
+
+    private function siteExists($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $query = $em->createQuery("SELECT u.id FROM AppBundle:Sites u WHERE u.id = :id")
+                    ->setParameter('id', $id);
+
+        return $query->getOneOrNullResult();
     }
 
 }
