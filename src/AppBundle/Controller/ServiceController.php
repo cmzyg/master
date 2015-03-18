@@ -8,13 +8,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 
 
-class ServiceController extends Controller
+class ServiceController
 {
     protected $em;
 
-    public function __construct(EntityManager $em)
+    public function __construct()
     {
-        $this->em = $em;
+        $this->em = $this->getDoctrine()->getManager();
     }
 
 }
