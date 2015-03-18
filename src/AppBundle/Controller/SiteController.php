@@ -59,7 +59,7 @@ class SiteController extends Controller
         $query = $em->createQuery("SELECT * FROM sites u WHERE id u = :id")
                     ->setParameter('id', $id);
 
-        return $query->getResults();
+        return $query->getResult();
     }
 
 
