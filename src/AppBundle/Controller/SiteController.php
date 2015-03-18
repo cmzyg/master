@@ -16,12 +16,14 @@ class SiteController extends Controller
     private $request;
     private $session;
     private $filesystem;
+    private $em;
 
     public function __construct()
     {
         $this->request = Request::createFromGlobals();
         $this->session = new Session;
         $this->filesystem = new Filesystem();
+        $this->em = $this->getDoctrine()->getManager();
     }
 
     /**
