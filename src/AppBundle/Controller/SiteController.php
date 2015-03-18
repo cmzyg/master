@@ -30,10 +30,10 @@ class SiteController extends Controller
     /**
      * @Route("site/{id}", name="site")
      */
-    public function indexAction()
+    public function indexAction($id)
     {
 
-        $siteID = $this->request->query->get('id');
+        $siteID = $id;
 
         return $this->render('site/index.html.twig', array('siteID' => $siteID));
     }
