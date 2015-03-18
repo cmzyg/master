@@ -30,7 +30,10 @@ class SiteController extends Controller
     public function indexAction($id)
     {
         $site = $this->getSite($id);
-        return $this->render('site/index.html.twig', array('site' => $site));
+        $site_info           = array();
+        $site_info['domain'] = $site[0]['domain'];
+        $site_info['id']     = $site[0]['id'];
+        return $this->render('site/index.html.twig', array('site' => $site_info));
     }
 
     /**
@@ -61,6 +64,5 @@ class SiteController extends Controller
 
         return $query->getResult();
     }
-
 
 }
