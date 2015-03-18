@@ -7,8 +7,11 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 
-class ServiceController
+
+class ServiceController extends Controller
 {
+    private $request;
+    private $session;
     private $em;
 
     public function __construct(EntityManager $em)
