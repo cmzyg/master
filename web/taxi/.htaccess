@@ -1,6 +1,6 @@
-RewriteEngine On
-RewriteCond %{HTTPS} !on
-RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
+#RewriteEngine On
+#RewriteCond %{HTTPS} !on
+#RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
 
 RewriteRule  ^admin/settings/business-settings     admin/business-settings.php [NC,L] 
 RewriteRule  ^admin/settings/local-areas           admin/local-areas.php [NC,L] 
