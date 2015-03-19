@@ -17,6 +17,7 @@ class MasterController extends Controller
 
     public function __construct()
     {
+        die('zzz');
         $this->request = Request::createFromGlobals();
         $this->session = new Session;
     }
