@@ -1,14 +1,12 @@
 <?php
-
+die();
 namespace AppBundle\Controller;
 
 use Doctrine\Entity;
-use Doctrine\ORM\EntityManager;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use AppBundle\Entity\Admin;
 use AppBundle\Entity\Sites;
-use AppBundle\Controller\ServiceController;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -17,7 +15,6 @@ class MasterController extends Controller
 {
     private $request;
     private $session;
-    private $em;
 
     public function __construct()
     {
