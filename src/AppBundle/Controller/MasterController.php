@@ -1,5 +1,4 @@
 <?php
-die();
 namespace AppBundle\Controller;
 
 use Doctrine\Entity;
@@ -42,7 +41,7 @@ class MasterController extends Controller
     private function getAdminDetails($id)
     {
         $em                = $this->getDoctrine()->getManager();
-        $repository        = $em->getRepository('AppBundle:Admin');
+        $repository        = $em->getRepository('AppBundle:Admi');
         $administrator     = $repository->findOneById($id);
 
         $admin['name']     = $administrator->getName();
