@@ -41,7 +41,7 @@ class MasterController extends Controller
     private function getAdminDetails($id)
     {
         $em                = $this->getDoctrine()->getManager();
-        $repository        = $em->getRepository('AppBundle:Admi');
+        $repository        = $em->getRepository('AppBundle:Admin');
         $administrator     = $repository->findOneById($id);
 
         $admin['name']     = $administrator->getName();
