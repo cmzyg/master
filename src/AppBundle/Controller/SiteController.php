@@ -79,6 +79,18 @@ class SiteController extends Controller
         return $query->getResult();
     }
 
+    /**
+    * @Route("sites", name="sites")
+    */
+    public function getSites()
+    {
+        $em      = $this->getDoctrine()->getManager();
+        $repo    = $em->getRepository('AppBundle:Sites');
+        $results = $repo->findAll();
+
+        return $this->render('sites/index.html/twig', array('sites' => $results));
+    }
+
     private function siteExists($id)
     {
         $em    = $this->getDoctrine()->getManager();
