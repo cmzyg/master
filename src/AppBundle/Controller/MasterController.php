@@ -40,7 +40,7 @@ class MasterController extends Controller
             $sites[$i]['status'] = 'success';
             $i++;
         }*/
-        echo '<pre>' . print_r($sites) . '</pre>'; exit;
+        echo '<pre>' . $sites['status'] . '</pre>'; exit;
 
         return $this->render('master/index.html.twig', array('administrator' => $admin, 'sites' => $sites));
     }
