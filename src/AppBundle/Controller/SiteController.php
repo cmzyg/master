@@ -2,8 +2,8 @@
 
 namespace AppBundle\Controller;
 
-use Doctrine\Entity;
 use Doctrine\ORM\EntityManager;
+use Doctrine\Entity;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -34,8 +34,8 @@ class SiteController extends Controller
         {
             if($this->siteExists($id))
             {
-                $site = $this->getSite($id);
-                $siteInfo = array();
+                $site       = $this->getSite($id);
+                $siteInfo   = array();
                 $siteConfig = array();
 
                 $siteInfo['domain']   = $site[0]['domain'];
