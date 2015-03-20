@@ -44,23 +44,12 @@ class SiteController extends Controller
                 $siteConfig['dbpass'] = $site[0]['dbpass'];
                 $siteConfig['dbname'] = $site[0]['dbname'];
 
-                try {
-                    $con = mysqli_connect($siteConfig['dbhost'], $siteConfig['dbuser'], $siteConfig['dbpass'], $siteConfig['dbname']);
-                    if (mysqli_connect_errno())
-                    {
-                        $connectionStatus = "Failed to connect to MySQL: " . mysqli_connect_error();
-                    }
-                    else
-                    {
-                        $connectionStatus = "Connection successful";
-                    }
+
+                $con = mysqli_connect($siteConfig['dbhost'], $siteConfig['dbuser'], $siteConfig['dbpass'], $siteConfig['dbname']);
+                if($con)
+                {
+                    $connectionStatus = "Connection successful";
                 }
-
-                catch(Exception $e) {
-                    echo 'Message: ' .$e->getMessage();
-                }
-
-
 
                 return $this->render('site/index.html.twig', array('siteInfo' => $siteInfo, 'siteConfig' => $siteConfig, 'connectionStatus' => $connectionStatus));
             }
