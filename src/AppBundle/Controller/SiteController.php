@@ -44,15 +44,7 @@ class SiteController extends Controller
                 $siteConfig['dbpass'] = $site[0]['dbpass'];
                 $siteConfig['dbname'] = $site[0]['dbname'];
 
-
-                if(@mysqli_connect($siteConfig['dbhost'], $siteConfig['dbuser'], $siteConfig['dbpass'], $siteConfig['dbname']))
-                {
-                    $connectionStatus = "Connection successful";
-                }
-                else
-                {
-                    $connectionStatus = "Connection unsuccessful";
-                }
+                $connectionStatus = $this->checkConnection($siteConfig['dbhost'], $siteConfig['dbuser'], $siteConfig['dbpass'], $siteConfig['dbname']);
 
                 return $this->render('site/index.html.twig', array('siteInfo' => $siteInfo, 'siteConfig' => $siteConfig, 'connectionStatus' => $connectionStatus));
             }
@@ -108,6 +100,20 @@ class SiteController extends Controller
                     ->setParameter('id', $id);
 
         return $query->getOneOrNullResult();
+    }
+
+    private function checkConnection($dbhost, $dbuser, $dbpass, $dbname)
+    {
+        if(@mysqli_connect($dbhost, $dbuser, $dbpass, $dbname))
+        {
+            $connectionStatus = "Connection successful";
+        }
+        else
+        {
+            $connectionStatus = "Connection unsuccessful";
+        }
+
+        return $connectionStatus;
     }
 
 }
