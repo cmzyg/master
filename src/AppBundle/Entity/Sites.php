@@ -43,6 +43,11 @@ class Sites {
      * */
     protected $dbname;
 
+    /**
+     * @ORM\Column(type="integer", length=1)
+     */
+    protected $status;
+
 
     public function getDomain()
     {
@@ -72,6 +77,11 @@ class Sites {
     public function getDbName()
     {
         return $this->dbname;
+    }
+
+    public function getStatus()
+    {
+        return $this->status;
     }
 
 }
