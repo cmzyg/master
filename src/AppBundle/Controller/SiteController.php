@@ -56,6 +56,12 @@ class SiteController extends Controller
                     }
                 }
 
+                catch(Exception $e) {
+                    echo 'Message: ' .$e->getMessage();
+                }
+
+
+
                 return $this->render('site/index.html.twig', array('siteInfo' => $siteInfo, 'siteConfig' => $siteConfig, 'connectionStatus' => $connectionStatus));
             }
         }
