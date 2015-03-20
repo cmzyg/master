@@ -40,7 +40,7 @@ class MasterController extends Controller
             $sites[$i]['status'] = 'success';
             $i++;
         }*/
-        echo json_encode($sites); exit;
+        echo var_dump($sites); exit;
 
         return $this->render('master/index.html.twig', array('administrator' => $admin, 'sites' => $sites));
     }
