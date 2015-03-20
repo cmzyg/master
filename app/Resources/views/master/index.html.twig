@@ -271,8 +271,14 @@
                 <small>Latest Websites</small>
                 <ul class="list-group clear-list m-t">
                     {% for site in sites %}
+                        {% if site.status == 0 %}
+                            {% set site.status = 'danger' %}
+                        {% endif %}
+                        {% if site.status == 1 %}
+                            {% set site.status = 'success' %}
+                        {% endif %}
                         <li class="list-group-item fist-item">
-                            <a href="site/{{ site.id }}"><span class="label label-danger">{{ site.id }} </span> {{ site.domain }}</a>
+                            <a href="site/{{ site.id }}"><span class="label label-{{ site.status }}">{{ site.id }} </span> {{ site.domain }}</a>
                         </li>
                     {% endfor %}
                 </ul>
