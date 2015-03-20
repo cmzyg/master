@@ -86,22 +86,22 @@ class Sites {
 
     public function setDbHost($dbHost)
     {
-        $this->dbHost = $dbHost;
+        $this->dbhost = $dbHost;
     }
 
     public function setDbUser($dbUser)
     {
-        $this->dbUser = $dbUser;
+        $this->dbuser = $dbUser;
     }
 
     public function setDbPass($dbPass)
     {
-        $this->dbPass = $dbPass;
+        $this->dbpass = $dbPass;
     }
 
     public function setDbName($dbName)
     {
-        $this->dbName = $dbName;
+        $this->dbname = $dbName;
     }
 
 }
