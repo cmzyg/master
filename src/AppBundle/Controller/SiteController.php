@@ -129,13 +129,14 @@ class SiteController extends Controller
         $dbPass = $this->request->request->get('dbpass');
         $dbName = $this->request->request->get('dbname');
 
-        $em    = $this->getDoctrine()->getManager();
-        $repo  = $em->getRepository('AppBundle:Sites');
+        $em     = $this->getDoctrine()->getManager();
+        $repo   = $em->getRepository('AppBundle:Sites');
+        $config = $repo->findOneById($siteId);
 
-        $repo->setDbHost($dbHost);
-        $repo->setDbUser($dbUser);
-        $repo->setDbPass($dbPass);
-        $repo->setDbName($dbName);
+        $config->setDbHost($dbHost);
+        $config->setDbUser($dbUser);
+        $config->setDbPass($dbPass);
+        $config->setDbName($dbName);
 
         $em->flush();
 
