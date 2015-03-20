@@ -35,11 +35,12 @@ class MasterController extends Controller
         $sites = $this->getManagedSites();
 
         $i = 0;
-        foreach($sites as $site)
+        /*foreach($sites as $site)
         {
             $sites[$i]['status'] = 'success';
             $i++;
-        }
+        }*/
+        var_dump($sites); exit;
 
         return $this->render('master/index.html.twig', array('administrator' => $admin, 'sites' => $sites));
     }
