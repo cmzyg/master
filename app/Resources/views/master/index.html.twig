@@ -271,6 +271,13 @@
                 <small>Latest Websites</small>
                 <ul class="list-group clear-list m-t">
                     {% for site in sites %}
+
+                        {% if site.status == 0 %}
+                            labas
+                        {% else %}
+                           nelabas
+                        {% endif %}>
+
                         <li class="list-group-item fist-item">
                             <a href="site/{{ site.id }}"><span class="label label-{{ site.status }}">{{ site.id }} </span> {{ site.domain }}</a>
                         </li>
