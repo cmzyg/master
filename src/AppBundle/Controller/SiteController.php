@@ -140,6 +140,7 @@ class SiteController extends Controller
 
         $em->persist($config);
         $em->flush();
+        die;
 
         return $this->redirect($this->generateUrl('site', array('id' => $siteId)));
     }
