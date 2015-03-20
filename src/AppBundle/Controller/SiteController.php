@@ -130,7 +130,7 @@ class SiteController extends Controller
         $dbName = $this->request->request->get('dbname');
 
         $em    = $this->getDoctrine()->getManager();
-        $repo  = $this->getRepository('AppBundle:Sites');
+        $repo  = $em->getRepository('AppBundle:Sites');
 
         $repo->setDbHost($dbHost);
         $repo->setDbUser($dbUser);
