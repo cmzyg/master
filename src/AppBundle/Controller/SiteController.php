@@ -116,4 +116,19 @@ class SiteController extends Controller
         return $connectionStatus;
     }
 
+    /**
+     * @Route("process-site", name="process-site")
+     * @Method("POST")
+     */
+    public function processSite()
+    {
+        $siteId = $this->request->request->get('id');
+        $dbHost = $this->request->request->get('dbhost');
+        $dbUser = $this->request->request->get('dbuser');
+        $dbPass = $this->request->request->get('dbpass');
+        $dbName = $this->request->request->get('dbname');
+
+        $this->redirect($this->generateUrl('site', array($siteId)));
+    }
+
 }
