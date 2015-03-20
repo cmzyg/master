@@ -84,5 +84,25 @@ class Sites {
         return $this->status;
     }
 
+    public function setDbHost($dbHost)
+    {
+        $this->dbHost = $dbHost;
+    }
+
+    public function setDbUser($dbUser)
+    {
+        $this->dbUser = $dbUser;
+    }
+
+    public function setDbPass($dbPass)
+    {
+        $this->dbPass = $dbPass;
+    }
+
+    public function setDbName($dbName)
+    {
+        $this->dbName = $dbName;
+    }
+
 }
 ?>
