@@ -34,14 +34,6 @@ class MasterController extends Controller
         $admin = $this->getAdminDetails(2);
         $sites = $this->getManagedSites();
 
-        $i = 0;
-        /*foreach($sites as $site)
-        {
-            $sites[$i]['status'] = 'success';
-            $i++;
-        }*/
-        echo var_dump($sites->id); exit;
-
         return $this->render('master/index.html.twig', array('administrator' => $admin, 'sites' => $sites));
     }
 
