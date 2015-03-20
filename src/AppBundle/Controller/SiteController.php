@@ -45,8 +45,7 @@ class SiteController extends Controller
                 $siteConfig['dbname'] = $site[0]['dbname'];
 
 
-                $con = mysqli_connect($siteConfig['dbhost'], $siteConfig['dbuser'], $siteConfig['dbpass'], $siteConfig['dbname']);
-                if($con)
+                if(!mysqli_connect($siteConfig['dbhost'], $siteConfig['dbuser'], $siteConfig['dbpass'], $siteConfig['dbname']));
                 {
                     $connectionStatus = "Connection successful";
                 }
