@@ -273,13 +273,13 @@
                     {% for site in sites %}
 
                         {% if site.status == 0 %}
-                            {{ site.status = 'danger' }}
+                            {% set status = 'danger' %}
                         {% else %}
-                           {{ site.status = 'success' }}
+                            {% set status = 'success' %}
                         {% endif %}
 
                         <li class="list-group-item fist-item">
-                            <a href="site/{{ site.id }}"><span class="label label-{{ site.status }}">{{ site.id }} </span> {{ site.domain }}</a>
+                            <a href="site/{{ site.id }}"><span class="label label-{{ status }}">{{ site.id }} </span> {{ site.domain }}</a>
                         </li>
                     {% endfor %}
                 </ul>
