@@ -49,6 +49,10 @@ class SiteController extends Controller
                 {
                     $connectionStatus = "Connection successful";
                 }
+                else
+                {
+                    $connectionStatus = "Connection unsuccessful";
+                }
 
                 return $this->render('site/index.html.twig', array('siteInfo' => $siteInfo, 'siteConfig' => $siteConfig, 'connectionStatus' => $connectionStatus));
             }
