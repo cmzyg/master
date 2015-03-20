@@ -138,6 +138,7 @@ class SiteController extends Controller
         $config->setDbPass($dbPass);
         $config->setDbName($dbName);
 
+        $em->persist($config);
         $em->flush();
 
         return $this->redirect($this->generateUrl('site', array('id' => $siteId)));
