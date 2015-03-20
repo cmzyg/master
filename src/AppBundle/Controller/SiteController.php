@@ -128,7 +128,7 @@ class SiteController extends Controller
         $dbPass = $this->request->request->get('dbpass');
         $dbName = $this->request->request->get('dbname');
 
-        $this->redirect($this->generateUrl('site', array($siteId)));
+        $this->redirect($this->generateUrl('site', array('id' => $siteId)));
     }
 
 }
