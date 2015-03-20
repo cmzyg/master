@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use Doctrine\Entity;
 use Doctrine\ORM\EntityManager;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
