@@ -273,10 +273,10 @@
                     {% for site in sites %}
 
                         {% if site.status == 0 %}
-                            labas
+                            {{ site.status = 'danger' }}
                         {% else %}
-                           nelabas
-                        {% endif %}>
+                           {{ site.status = 'success' }}
+                        {% endif %}
 
                         <li class="list-group-item fist-item">
                             <a href="site/{{ site.id }}"><span class="label label-{{ site.status }}">{{ site.id }} </span> {{ site.domain }}</a>
