@@ -68,7 +68,7 @@ class SiteController extends Controller
         // copy new folders
         if(!$this->filesystem->exists($newDir))
         {
-            $this->filesystem->mkdir($newDir);
+            $this->filesystem->mkdir($newDir, 0777);
             $this->filesystem->mirror($baseDir, $newDir);
         }
 
