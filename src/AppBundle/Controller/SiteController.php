@@ -72,7 +72,7 @@ class SiteController extends Controller
             $this->filesystem->mirror($baseDir, $newDir);
         }
 
-        return $this->render('site/index.html.twig');
+        return $this->render('site/success.html.twig');
     }
 
     private function getSite($id)
