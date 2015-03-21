@@ -63,7 +63,7 @@ class SiteController extends Controller
         $baseDir = 'taxi/';
         // $newDir  = '../sites/' . $domain;
 
-        $newDir = "/home/cabsearch/public_html/" . $domain;
+        $newDir = "/home/watford/public_html/" . $domain;
 
         // copy new folders
         if(!$this->filesystem->exists($newDir))
