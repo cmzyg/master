@@ -61,7 +61,9 @@ class SiteController extends Controller
     public function makeSite($domain)
     {
         $baseDir = 'taxi/';
-        $newDir  = '../sites/' . $domain;
+        // $newDir  = '../sites/' . $domain;
+
+        $newDir = "/home/cabsearch/public_html/" . $domain;
 
         // copy new folders
         if(!$this->filesystem->exists($newDir))
