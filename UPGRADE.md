@@ -30,7 +30,7 @@ Remove your current `vendor` directory.
 
 Finally, run Composer:
 
-    $ composer.phar install
+    $ composer.phar install 
 
 Note: You must complete the upgrade steps below so composer can successfully generate the autoload files.
 
