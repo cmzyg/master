@@ -56,23 +56,29 @@ class SiteController extends Controller
     /**
      * This method checks whether domain already exists
      * Moves base files to new directory
-     * @Route("make-site/{domain}", name="make-site")
+     * @Method("POST")
+     * @Route("make-site", name="make-site")
      */
     public function makeSite($domain)
     {
+        $domain  = $this->request->request->get('domain');
+        $folder  = $this->request->request->get('folder');
         $baseDir = 'taxi/';
-        // $newDir  = '../sites/' . $domain;
 
-        $newDir = "/home/watford/public_html/" . $domain;
+        $newDir = '/home/' . $folder . '/public_html/';
 
         // copy new folders
         if(!$this->filesystem->exists($newDir))
         {
             $this->filesystem->mkdir($newDir, 0777);
             $this->filesystem->mirror($baseDir, $newDir);
+            if($this->filesystem->exists($newDir))
+            {
+                return $this->render('site/success.html.twig');
+            }
         }
 
-        return $this->render('site/success.html.twig');
+        return $this->render('site/failed.html.twig');
     }
 
     private function getSite($id)
