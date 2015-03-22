@@ -11,7 +11,7 @@ use AppBundle\Entity\Errors;
 
 
 
-class ErrorsController extends Controller
+class ErrorsLogController extends Controller
 {
     private $request;
     private $session;
@@ -24,7 +24,7 @@ class ErrorsController extends Controller
         //...
     }
 
-    private function checkConnection($errorTitle, $errorDescription)
+    private function logError($errorTitle, $errorDescription)
     {
         $errorTime        = date('d-m-Y H:i:s');
         $errors = new Errors();

@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Finder\Finder;
 use AppBundle\Entity\Errors;
-use AppBundle\Controller\ErrorsController;
+use AppBundle\Controller\ErrorsLogController;
 
 
 
@@ -22,7 +22,7 @@ class SiteController extends Controller
     private $session;
     private $filesystem;
     private $finder;
-    private $errors;
+    private $log;
 
 
     public function __construct()
@@ -31,7 +31,7 @@ class SiteController extends Controller
         $this->session    = new Session;
         $this->filesystem = new Filesystem();
         $this->finder     = new Finder();
-        $this->errors     = new Errors();
+        $this->log        = new ErrorsLog();
     }
 
     /**
