@@ -14,5 +14,5 @@ services:
 
     app.helper.errors:
     class: AppBundle\Controller\ErrorsController
-    arguments: ["@doctrine.orm.entity_manager"]
+    arguments: [%doctrine.orm.entity_manager%]
 
