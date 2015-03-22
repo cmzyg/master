@@ -15,11 +15,13 @@ class MasterController extends Controller
 {
     private $request;
     private $session;
+    private $logger;
 
     public function __construct()
     {
         $this->request = Request::createFromGlobals();
         $this->session = new Session;
+        $this->logger  = $this->get('app.errors_controller');
     }
 
     /**
@@ -36,7 +38,7 @@ class MasterController extends Controller
         $sites  = $this->getManagedSites();
         $errors = $this->getErrors(3);
         $helper = $this->get('app.errors_controller');
-        $helper->logError('test', 'tetsing - works!');
+        $this->logger->log('test', 'tetsing - works!');
 
         return $this->render('master/index.html.twig', array('administrator' => $admin, 'sites' => $sites, 'errors' => $errors));
     }

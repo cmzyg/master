@@ -21,7 +21,7 @@ class ErrorsController
         $this->em = $em;
     }
 
-    public function logError($errorTitle, $errorDescription)
+    public function log($errorTitle, $errorDescription)
     {
         $errorTime        = date('d-m-Y H:i:s');
         $errors = new Errors();
