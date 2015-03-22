@@ -11,7 +11,7 @@ use AppBundle\Entity\Errors;
 
 
 
-class ErrorsLogController extends Controller
+class ErrorsController extends Controller
 {
     private $request;
     private $session;
