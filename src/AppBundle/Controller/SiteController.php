@@ -10,6 +10,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Filesystem\Filesystem;
+use Symfony\Component\Finder\Finder;
+
 
 
 class SiteController extends Controller
@@ -17,6 +19,8 @@ class SiteController extends Controller
     private $request;
     private $session;
     private $filesystem;
+    private $finder;
+
 
     public function __construct()
     {
@@ -46,6 +50,13 @@ class SiteController extends Controller
                 $siteConfig['dbname'] = $site[0]['dbname'];
 
                 $connectionStatus = $this->checkConnection($siteConfig['dbhost'], $siteConfig['dbuser'], $siteConfig['dbpass'], $siteConfig['dbname']);
+
+                $this->finder->finder()->in(__DIR__);
+
+                foreach ($finder as $file) 
+                {
+                    print $file->getRealpath()."\n";
+                }
 
                 return $this->render('site/index.html.twig', array('siteInfo' => $siteInfo, 'siteConfig' => $siteConfig, 'connectionStatus' => $connectionStatus, 'id' => $id));
             }
