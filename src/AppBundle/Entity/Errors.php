@@ -35,6 +35,11 @@ class Errors
      */
     private $errorDescription;
 
+    /**
+     * @ORM\Column(name="errorTime", type="datetime")
+     */
+    private $errorTime;
+
 
     /**
      * Get id
@@ -67,6 +72,17 @@ class Errors
     public function getErrorTitle()
     {
         return $this->errorTitle;
+    }
+
+
+    /**
+     * Get errorTitle
+     *
+     * @return string 
+     */
+    public function getErrorTime()
+    {
+        return $this->errorTime;
     }
 
     /**
