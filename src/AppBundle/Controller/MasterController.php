@@ -60,7 +60,7 @@ class MasterController extends Controller
     {
         $em         = $this->getDoctrine()->getManager();
         $repository = $em->getRepository('AppBundle:Sites');
-        $sites      = $repository->findBy(array(), array('id' => 'DESC'));
+        $sites      = $repository->findBy(array(), array('id' => 'DESC'), 5);
 
         return $sites;
     }
