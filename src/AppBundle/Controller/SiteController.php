@@ -52,7 +52,7 @@ class SiteController extends Controller
 
                 $connectionStatus = $this->checkConnection($siteConfig['dbhost'], $siteConfig['dbuser'], $siteConfig['dbpass'], $siteConfig['dbname']);
 
-                $this->finder->finder()->in(__DIR__);
+                $this->finder->files()->in(__DIR__);
 
                 foreach ($finder as $file) 
                 {
