@@ -164,7 +164,7 @@ class SiteController extends Controller
         );
 
         $databaseJSON = json_encode($databaseJSON);
-        $pathJSON     = '/home/' . $folder . '/public_html/settings/database.json';
+        $pathJSON     = '/home/' . $folder . '/public_html/database.json';
 
         return file_put_contents($pathJSON, $databaseJSON) ? TRUE : FALSE;
     }
