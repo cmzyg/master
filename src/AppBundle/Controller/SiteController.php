@@ -151,6 +151,7 @@ class SiteController extends Controller
         $config->setDbUser($dbUser);
         $config->setDbPass($dbPass);
         $config->setDbName($dbName);
+        $config->setDomain($domain);
 
         $em->persist($config);
         $em->flush();

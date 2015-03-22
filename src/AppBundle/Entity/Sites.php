@@ -104,5 +104,10 @@ class Sites {
         $this->dbname = $dbName;
     }
 
+    public function setDomain($domain)
+    {
+        $this->domain = $domain;
+    }
+
 }
 ?>
