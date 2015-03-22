@@ -184,39 +184,24 @@
 
                                     <div>
                                         <div class="feed-activity-list">
+                                            {% for error in errors %}
 
+      
                                             <div class="feed-element">
                                                 <a href="profile.html" class="pull-left">
                                                     <img alt="image" class="img-circle" src="{{ asset('img/profile.jpg') }}">
                                                 </a>
                                                 <div class="media-body ">
                                                     <small class="pull-right">5m ago</small>
-                                                    <strong>Monica Smith</strong> posted a new blog. <br>
-                                                    <small class="text-muted">Today 5:60 pm - 12.06.2014</small>
+                                                    <strong>{{error.errorTitle}}</strong> <br>
+                                                    <small class="text-muted">{{error.errorDescription}}</small>
 
                                                 </div>
                                             </div>
 
-                                            <div class="feed-element">
-                                                <a href="profile.html" class="pull-left">
-                                                    <img alt="image" class="img-circle" src="{{ asset('img/a2.jpg') }}">
-                                                </a>
-                                                <div class="media-body ">
-                                                    <small class="pull-right">2h ago</small>
-                                                    <strong>Mark Johnson</strong> posted message on <strong>Monica Smith</strong> site. <br>
-                                                    <small class="text-muted">Today 2:10 pm - 12.06.2014</small>
-                                                </div>
-                                            </div>
-                                            <div class="feed-element">
-                                                <a href="profile.html" class="pull-left">
-                                                    <img alt="image" class="img-circle" src="{{ asset('img/a3.jpg') }}">
-                                                </a>
-                                                <div class="media-body ">
-                                                    <small class="pull-right">2h ago</small>
-                                                    <strong>Janet Rosowski</strong> add 1 photo on <strong>Monica Smith</strong>. <br>
-                                                    <small class="text-muted">2 days ago at 8:30am</small>
-                                                </div>
-                                            </div>
+                                        {% endfor %}
+
+   
                                         </div>
 
                                         <button class="btn btn-primary btn-block m-t"><i class="fa fa-arrow-down"></i> Show More</button>
