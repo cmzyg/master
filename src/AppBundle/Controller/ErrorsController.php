@@ -11,12 +11,8 @@ use AppBundle\Entity\Errors;
 
 
 
-class ErrorsController extends Controller
+class ErrorsController
 {
-    private $request;
-    private $session;
-    private $filesystem;
-    private $finder;
 
 
     public function __construct()
@@ -32,6 +28,11 @@ class ErrorsController extends Controller
         $em = $this->getDoctrine()->getManager();
         $em->persist($errors);
         $em->flush();
+    }
+
+    private function testing()
+    {
+        return 'beris';
     }
 
 

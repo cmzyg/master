@@ -12,3 +12,7 @@ services:
          #class: AppBundle\Controller\ServiceController
          #arguments: ["@doctrine.orm.entity_manager"]
 
+    app.helper.errors:
+    class: AppBundle\Controller\ErrorsController
+    arguments: "@doctrine.orm.entity_manager"
+
