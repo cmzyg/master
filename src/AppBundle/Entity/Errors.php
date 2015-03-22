@@ -36,7 +36,7 @@ class Errors
     private $errorDescription;
 
     /**
-     * @ORM\Column(name="errorTime", type="datetime")
+     * @ORM\Column(name="errorTime", type="string")
      */
     private $errorTime;
 
@@ -78,7 +78,7 @@ class Errors
     /**
      * Get errorTime
      *
-     * @return datetime 
+     * @return string
      */
     public function getErrorTime()
     {
