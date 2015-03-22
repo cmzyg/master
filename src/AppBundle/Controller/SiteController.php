@@ -46,7 +46,6 @@ class SiteController extends Controller
                 $siteConfig['dbname'] = $site[0]['dbname'];
 
                 $connectionStatus = $this->checkConnection($siteConfig['dbhost'], $siteConfig['dbuser'], $siteConfig['dbpass'], $siteConfig['dbname']);
-                $this->generateJSON($siteConfig['dbhost'], $siteConfig['dbuser'], $siteConfig['dbpass'], $siteConfig['dbname'], $siteInfo['domain'], 'watford');
 
                 return $this->render('site/index.html.twig', array('siteInfo' => $siteInfo, 'siteConfig' => $siteConfig, 'connectionStatus' => $connectionStatus, 'id' => $id));
             }
@@ -142,6 +141,7 @@ class SiteController extends Controller
         $dbUser = $this->request->request->get('dbuser');
         $dbPass = $this->request->request->get('dbpass');
         $dbName = $this->request->request->get('dbname');
+        $domain = $this->request->request->get('domain');
 
         $em     = $this->getDoctrine()->getManager();
         $repo   = $em->getRepository('AppBundle:Sites');
@@ -154,6 +154,8 @@ class SiteController extends Controller
 
         $em->persist($config);
         $em->flush();
+
+        $this->generateJSON($dbHost, $dbUser, $dbPass, $dbName, $domain, 'watford');
 
         return $this->redirect($this->generateUrl('site', array('id' => $siteId)));
     }

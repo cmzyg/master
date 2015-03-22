@@ -1,6 +1,6 @@
-<h2>Domain: <strong>{{ siteInfo.domain }}</strong></h2>
-<br />
 <form method="POST" action="../process-site">
+    <h3>DOMAIN</h3>
+    <p><input type="text" name="domain" value="{{ siteInfo.domain }}" /></p>
     <h3>DB HOST</h3>
     <p><input type="text" name="dbhost" value="{{ siteConfig.dbhost }}" /></p>
     <h3>DB USER</h3>
