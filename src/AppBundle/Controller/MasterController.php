@@ -37,6 +37,9 @@ class MasterController extends Controller
         $sites  = $this->getManagedSites();
         $errors = $this->getErrors(3);
 
+        $this->logger  = $this->get('app.errors_controller');
+        $this->logger->log('test', 'tetsing - works!');
+
         return $this->render('master/index.html.twig', array('administrator' => $admin, 'sites' => $sites, 'errors' => $errors));
     }
 
