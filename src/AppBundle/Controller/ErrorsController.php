@@ -23,7 +23,7 @@ class ErrorsController
 
     public function log($errorTitle, $errorDescription)
     {
-        $errorTime        = date('d-m-Y H:i:s');
+        $errorTime = date('d-m-Y H:i:s');
         $errors = new Errors();
         $errors->logError($errorTitle, $errorDescription, $errorTime);
         $this->em->persist($errors);
