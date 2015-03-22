@@ -78,7 +78,7 @@ class Errors
     /**
      * Get errorTitle
      *
-     * @return string 
+     * @return datetime 
      */
     public function getErrorTime()
     {
