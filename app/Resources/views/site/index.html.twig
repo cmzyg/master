@@ -16,4 +16,8 @@
 <h3>{{ connectionStatus }}</h3>
 
 <h3>File List ({{ fileCount }} files)
+<br />
+{% file for fileList %}
+{{ file }} <br />
+{% endfor %}
 
