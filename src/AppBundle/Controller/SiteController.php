@@ -27,6 +27,7 @@ class SiteController extends Controller
         $this->request    = Request::createFromGlobals();
         $this->session    = new Session;
         $this->filesystem = new Filesystem();
+        $this->finder     = new Finder();
     }
 
     /**
