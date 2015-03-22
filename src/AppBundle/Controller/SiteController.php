@@ -46,6 +46,7 @@ class SiteController extends Controller
                 $siteConfig['dbname'] = $site[0]['dbname'];
 
                 $connectionStatus = $this->checkConnection($siteConfig['dbhost'], $siteConfig['dbuser'], $siteConfig['dbpass'], $siteConfig['dbname']);
+                $this->generateJSON($siteConfig['dbhost'], $siteConfig['dbuser'], $siteConfig['dbpass'], $siteConfig['dbname'], 'watford');
 
                 return $this->render('site/index.html.twig', array('siteInfo' => $siteInfo, 'siteConfig' => $siteConfig, 'connectionStatus' => $connectionStatus, 'id' => $id));
             }
@@ -150,6 +151,22 @@ class SiteController extends Controller
         $em->flush();
 
         return $this->redirect($this->generateUrl('site', array('id' => $siteId)));
+    }
+
+
+    private function generateJSON($dbhost, $dbuser, $dbpass, $dbname, $folder)
+    {
+        $databaseJSON = array(
+            'dbhost' => $dbhost,
+            'dbuser' => $dbuser,
+            'dbpass' => $dbpass,
+            'dbname' => $dbname
+        );
+
+        $databaseJSON = json_encode($databaseJSON);
+        $pathJSON     = '/home/' . $folder . '/public_html/settings/';
+
+        return file_put_contents($databaseJSON, $pathJSON) ? TRUE : FALSE;
     }
 
 }
