@@ -76,7 +76,7 @@ class Errors
 
 
     /**
-     * Get errorTitle
+     * Get errorTime
      *
      * @return datetime 
      */
