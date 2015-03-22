@@ -26,7 +26,8 @@ class ErrorsController
         $errorTime        = date('d-m-Y H:i:s');
         $errors = new Errors();
         $errors->logError($errorTitle, $errorDescription, $errorTime);
-        
+        $this->em->persist($errors);
+        $this->em->flush();
     }
 
     private function testing()
