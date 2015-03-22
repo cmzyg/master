@@ -13,11 +13,12 @@ use AppBundle\Entity\Errors;
 
 class ErrorsController
 {
+    private $em;
 
 
-    public function __construct()
+    public function __construct(EntityManager $em)
     {
-        //...
+        $this->em = $em;
     }
 
     public function logError($errorTitle, $errorDescription)
