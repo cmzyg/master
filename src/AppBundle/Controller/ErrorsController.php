@@ -24,7 +24,7 @@ class ErrorsController extends Controller
         //...
     }
 
-    private function logError($errorTitle, $errorDescription)
+    public function logError($errorTitle, $errorDescription)
     {
         $errorTime        = date('d-m-Y H:i:s');
         $errors = new Errors();
