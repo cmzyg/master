@@ -22,6 +22,7 @@ class SiteController extends Controller
     private $session;
     private $filesystem;
     private $finder;
+    private $errors;
 
 
     public function __construct()
@@ -30,6 +31,7 @@ class SiteController extends Controller
         $this->session    = new Session;
         $this->filesystem = new Filesystem();
         $this->finder     = new Finder();
+        $this->errors     = new Errors();
     }
 
     /**
