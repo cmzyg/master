@@ -46,7 +46,7 @@ class SiteController extends Controller
                 $siteConfig['dbname'] = $site[0]['dbname'];
 
                 $connectionStatus = $this->checkConnection($siteConfig['dbhost'], $siteConfig['dbuser'], $siteConfig['dbpass'], $siteConfig['dbname']);
-                $this->generateJSON($siteConfig['dbhost'], $siteConfig['dbuser'], $siteConfig['dbpass'], $siteConfig['dbname'], 'watford');
+                $this->generateJSON($siteConfig['dbhost'], $siteConfig['dbuser'], $siteConfig['dbpass'], $siteConfig['dbname'], $siteInfo['domain'], 'watford');
 
                 return $this->render('site/index.html.twig', array('siteInfo' => $siteInfo, 'siteConfig' => $siteConfig, 'connectionStatus' => $connectionStatus, 'id' => $id));
             }
@@ -64,6 +64,10 @@ class SiteController extends Controller
     {
         $domain  = $this->request->request->get('domain');
         $folder  = $this->request->request->get('folder');
+        $dbhost  = $this->request->request->get('dbhost');
+        $dbuser  = $this->request->request->get('dbuser');
+        $dbpass  = $this->request->request->get('dbpass');
+        $dbname  = $this->request->request->get('dbname');
         $baseDir = 'taxi/';
 
         $newDir = '/home/' . $folder . '/public_html/';
@@ -73,6 +77,7 @@ class SiteController extends Controller
         {
             $this->filesystem->mkdir($newDir, 0777);
             $this->filesystem->mirror($baseDir, $newDir);
+            $this->generateJSON($dbhost, $dbuser, $dbpass, $dbname, $domain, $folder);
             if($this->filesystem->exists($newDir))
             {
                 return $this->render('site/success.html.twig');
@@ -154,13 +159,14 @@ class SiteController extends Controller
     }
 
 
-    private function generateJSON($dbhost, $dbuser, $dbpass, $dbname, $folder)
+    private function generateJSON($dbhost, $dbuser, $dbpass, $dbname, $siteurl, $folder)
     {
         $databaseJSON = array(
-            'dbhost' => $dbhost,
-            'dbuser' => $dbuser,
-            'dbpass' => $dbpass,
-            'dbname' => $dbname
+            'dbhost'  => $dbhost,
+            'dbuser'  => $dbuser,
+            'dbpass'  => $dbpass,
+            'dbname'  => $dbname,
+            'siteurl' => $siteurl
         );
 
         $databaseJSON = json_encode($databaseJSON);
