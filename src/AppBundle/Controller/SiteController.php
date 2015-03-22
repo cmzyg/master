@@ -54,7 +54,7 @@ class SiteController extends Controller
 
                 $this->finder->files()->in(__DIR__);
 
-                foreach ($finder as $file) 
+                foreach ($this->finder as $file) 
                 {
                     print $file->getRealpath()."\n";
                 }
