@@ -35,7 +35,7 @@ class MasterController extends Controller
         $admin  = $this->getAdminDetails(2);
         $sites  = $this->getManagedSites();
         $errors = $this->getErrors(3);
-        $helper = $this->get('app.helper.errors');
+        $helper = $this->get('app.errors_controller');
 
         return $this->render('master/index.html.twig', array('administrator' => $admin, 'sites' => $sites, 'errors' => $errors));
     }
