@@ -70,9 +70,9 @@ class SiteController extends Controller
      * This method checks whether domain already exists
      * Moves base files to new directory
      * @Method("POST")
-     * @Route("make-site", name="make-site")
+     * @Route("make-project", name="make-project")
      */
-    public function makeSite($domain)
+    public function makeProject($domain)
     {
         $domain  = $this->request->request->get('domain');
         $folder  = $this->request->request->get('folder');
