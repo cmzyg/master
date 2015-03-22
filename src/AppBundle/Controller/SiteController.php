@@ -138,9 +138,9 @@ class SiteController extends Controller
         else
         {
             $em         = $this->getDoctrine()->getManager();
-            $repository = $em->getRepository('AppBundle:Errors'); 
+            /*$repository = $em->getRepository('AppBundle:Errors'); 
             $repository->logError('Error connecting to SQL', 'Incorrect credentials');
-            $em->flush();
+            $em->flush();*/
 
             $connectionStatus = "Connection unsuccessful";
         }
