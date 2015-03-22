@@ -92,4 +92,10 @@ class Errors
         return $this->errorDescription;
     }
 
+    public function logError($errorTitle, $errorDescription)
+    {
+        $this->errorTitle       = $errorTitle;
+        $this->errorDescription = $errorDescription;
+    }
+
 }

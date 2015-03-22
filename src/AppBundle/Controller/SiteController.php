@@ -137,11 +137,9 @@ class SiteController extends Controller
         }
         else
         {
-            $em    = $this->getDoctrine()->getManager();
-            $query = $em->createQuery("INSERT INTO AppBundle:Errors u VALUES (:errorTitle, :errorDescription)")
-                ->setParameter('errorTitle', 'Database connection failed')
-                ->setParameter('errorDescription', $dbuser . ' incorrect user for ' . $dbhost);
-            $em->persist($query);
+            $em         = $this->getDoctrine()->getManager();
+            $repository = $em->getRepository('AppBundle:Errors'); 
+            $repository->logError('Error connecting to SQL', 'Incorrect credentials');
             $em->flush();
 
             $connectionStatus = "Connection unsuccessful";
