@@ -60,7 +60,7 @@ class SiteController extends Controller
                     $fileList[] = $file->getRealpath();
                 }
 
-                return $this->render('site/index.html.twig', array('siteInfo' => $siteInfo, 'siteConfig' => $siteConfig, 'connectionStatus' => $connectionStatus, 'id' => $id, 'fileList' => $fileList));
+                return $this->render('site/index.html.twig', array('siteInfo' => $siteInfo, 'siteConfig' => $siteConfig, 'connectionStatus' => $connectionStatus, 'id' => $id, 'fileList' => $fileList, 'fileCount' => sizeof($fileList)));
             }
         }
 
