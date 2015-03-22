@@ -137,6 +137,13 @@ class SiteController extends Controller
         }
         else
         {
+            $log = $this->getDoctrine()->getManager()->getRepository('App:Errors');
+            $query = $log->createQuery("INSERT INTO AppBundle:Errors u VALUES (:errorTitle, :errorDescription)")
+                ->setParameter('errorTitle', 'Database connection failed')
+                ->setParameter('errorDescription', $dbuser . ' incorrect user for ' . $dbhost);
+            $log->persist($query);
+            $em->flush();
+            
             $connectionStatus = "Connection unsuccessful";
         }
 

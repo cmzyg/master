@@ -91,4 +91,5 @@ class Errors
     {
         return $this->errorDescription;
     }
+
 }
