@@ -140,7 +140,7 @@ class SiteController extends Controller
         else
         {
             $this->logger  = $this->get('app.errors_controller');
-            $this->logger->log($errorTitle, $errorDescription);
+            $this->logger->log('Database Problem', 'Incorrect database connection details');
 
             $connectionStatus = "Connection unsuccessful";
         }
