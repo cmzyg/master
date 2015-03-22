@@ -139,7 +139,7 @@ class SiteController extends Controller
         else
         {
             $errorTitle       = 'Error connecting to SQL';
-            $errorDescription = 'Incorrect credentials. Error at ' . __LINE__ . ' in ' . __FILE__;
+            $errorDescription = 'Incorrect credentials. Error at line ' . __LINE__ . '<br />File: ' . __FILE__;
             $errors = new Errors();
             $errors->logError($errorTitle, $errorDescription);
             $em = $this->getDoctrine()->getManager();
