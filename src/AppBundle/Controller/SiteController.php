@@ -109,7 +109,7 @@ class SiteController extends Controller
     }
 
     /**
-    * @Route("sites", name="sites")
+    * @Route("projects", name="sites")
     */
     public function getSites()
     {
