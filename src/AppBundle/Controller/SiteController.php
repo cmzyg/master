@@ -141,15 +141,14 @@ class SiteController extends Controller
         }
         else
         {
-            /*$errorTitle       = 'Database Error';
+            $errorTitle       = 'Database Error';
             $errorDescription = 'Incorrect database credentials';
             $errorTime        = date('d-m-Y H:i:s');
             $errors = new Errors();
             $errors->logError($errorTitle, $errorDescription, $errorTime);
             $em = $this->getDoctrine()->getManager();
             $em->persist($errors);
-            $em->flush();*/
-            $this->log->logError('Database Error', 'Incorrect database connection credentials');
+            $em->flush();
 
             $connectionStatus = "Connection unsuccessful";
         }
