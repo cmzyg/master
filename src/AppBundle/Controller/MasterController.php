@@ -6,6 +6,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use AppBundle\Entity\Admin;
 use AppBundle\Entity\Sites;
+use AppBundle\Entity\Errors;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -31,10 +32,11 @@ class MasterController extends Controller
             // return $this->redirect($this->generateUrl('login'));
         }
 
-        $admin = $this->getAdminDetails(2);
-        $sites = $this->getManagedSites();
+        $admin  = $this->getAdminDetails(2);
+        $sites  = $this->getManagedSites();
+        $errors = $this->getErrors();
 
-        return $this->render('master/index.html.twig', array('administrator' => $admin, 'sites' => $sites));
+        return $this->render('master/index.html.twig', array('administrator' => $admin, 'sites' => $sites, 'errors' => $errors));
     }
 
 
@@ -63,6 +65,15 @@ class MasterController extends Controller
         $sites      = $repository->findBy(array(), array('id' => 'DESC'), 5);
 
         return $sites;
+    }
+
+    private function getErrors($limit)
+    {
+        $em         = $this->getDoctrine()->getManager();
+        $repository = $em->getRepository('AppBundle:Errors');
+        $errors     = $repository->findBy(array(), array('id' => 'DESC'), $limit);
+
+        return $errors;
     }
 
     private function isLoggedIn()
