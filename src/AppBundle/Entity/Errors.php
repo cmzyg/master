@@ -108,10 +108,11 @@ class Errors
         return $this->errorDescription;
     }
 
-    public function logError($errorTitle, $errorDescription)
+    public function logError($errorTitle, $errorDescription, $errorTime)
     {
         $this->errorTitle       = $errorTitle;
         $this->errorDescription = $errorDescription;
+        $this->errorTime        = $errorTime;
     }
 
 }
