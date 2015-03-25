@@ -19,7 +19,7 @@ class ErrorLogController extends Controller
 
     public function __construct()
     {
-        
+        $this->request = Request::createFromGlobals();        
     }
 
     /**
