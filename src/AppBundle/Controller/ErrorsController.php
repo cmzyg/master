@@ -30,14 +30,4 @@ class ErrorsController
         $this->em->flush();
     }
 
-    /**
-     * @Route('error-log', name='Error Log')
-     */
-    private function indexAction()
-    {
-        $this->render('error/index.html.twig');
-    }
-
-
-
 }
