@@ -36,7 +36,7 @@ class MasterController extends Controller
         $admin  = $this->getAdminDetails(2);
         $sites  = $this->getManagedSites();
         $errors = $this->getErrors(3);
-        $page['id'] = 1;
+        $page['id'] = '1';
 
         return $this->render('master/index.html.twig', array('administrator' => $admin, 'sites' => $sites, 'errors' => $errors, 'page' => $page['id']));
     }
