@@ -27,7 +27,17 @@ class ErrorLogController extends Controller
      */
     public function indexAction()
     {
-        return $this->render('error-log/index.html.twig');
+        $errors = $this->getErrors(30);
+        return $this->render('error-log/index.html.twig', array('errors' => $errors));
+    }
+
+    private function getErrors($limit)
+    {
+        $em         = $this->getDoctrine()->getManager();
+        $repository = $em->getRepository('AppBundle:Errors');
+        $errors     = $repository->findBy(array(), array('id' => 'DESC'), $limit);
+
+        return $errors;
     }
 
 
