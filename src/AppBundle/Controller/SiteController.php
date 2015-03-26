@@ -108,7 +108,7 @@ class SiteController extends Controller
     public function addProject()
     {
         $admin  = $this->getAdminDetails(2);
-        $pageId = '1';
+        $pageId = '2';
 
         return $this->render('AppBundle:site:add-project.html.twig', array('administrator' => $admin, 'pageId' => $pageId));
     }

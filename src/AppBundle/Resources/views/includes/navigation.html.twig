@@ -23,7 +23,7 @@
                 <li {% if pageId == '1' %}  class='active' {% endif %} >
                     <a href="/"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboard</span></a>
                 </li>
-                 <li>
+                 <li {% if pageId == '3' %}  class='active' {% endif %}>
                     <a href="projects"><i class="fa fa-edit"></i> <span class="nav-label">Projects</span><span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li><a href="add-project">Add Projects</a></li>
