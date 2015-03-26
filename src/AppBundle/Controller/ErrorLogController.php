@@ -30,7 +30,7 @@ class ErrorLogController extends Controller
         $admin  = $this->getAdminDetails(2);
         $errors = $this->getErrors(30);
         $pageId = '3';
-        return $this->render('AppBundle:error-log/index.html.twig', array('errors' => $errors, 'administrator' => $admin, 'pageId' => 3));
+        return $this->render('AppBundle:error-log:index.html.twig', array('errors' => $errors, 'administrator' => $admin, 'pageId' => 3));
     }
 
     private function getErrors($limit)
