@@ -152,7 +152,7 @@ class SiteController extends Controller
         $repo    = $em->getRepository('AppBundle:Sites');
         $results = $repo->findAll();
 
-        return $this->render('sites/index.html.twig', array('sites' => $results));
+        return $this->render('AppBundle:sites:index.html.twig', array('sites' => $results));
     }
 
     private function siteExists($id)
