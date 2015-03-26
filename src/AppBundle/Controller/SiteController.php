@@ -107,7 +107,7 @@ class SiteController extends Controller
      */
     public function addProject()
     {
-        $this->render('AppBundle:site:add-project.html.twig');
+        return $this->render('AppBundle:site:add-project.html.twig');
     }
 
 
