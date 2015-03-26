@@ -62,7 +62,7 @@ class SiteController extends Controller
                     $fileList[] = $file->getRealpath();
                 }
 
-                return $this->render('site/index.html.twig', array('siteInfo' => $siteInfo, 'siteConfig' => $siteConfig, 'connectionStatus' => $connectionStatus, 'id' => $id, 'fileList' => $fileList, 'fileCount' => sizeof($fileList)));
+                return $this->render('AppBundle:site:index.html.twig', array('siteInfo' => $siteInfo, 'siteConfig' => $siteConfig, 'connectionStatus' => $connectionStatus, 'id' => $id, 'fileList' => $fileList, 'fileCount' => sizeof($fileList)));
             }
         }
 
@@ -101,6 +101,16 @@ class SiteController extends Controller
         return $this->render('site/failed.html.twig');
     }
 
+
+    /**
+     * @Route("add-project", name="Add Project")
+     */
+    public function addProject()
+    {
+        $this->render('AppBundle:site:add-project.html.twig');
+    }
+
+
     private function getSite($id)
     {
         $em    = $this->getDoctrine()->getManager();
@@ -109,6 +119,7 @@ class SiteController extends Controller
 
         return $query->getResult();
     }
+
 
     /**
     * @Route("projects", name="sites")
@@ -174,7 +185,11 @@ class SiteController extends Controller
         $em->persist($config);
         $em->flush();
 
-        $this->generateJSON($dbHost, $dbUser, $dbPass, $dbName, $domain, 'watford');
+        if(!$this->generateJSON($dbHost, $dbUser, $dbPass, $dbName, $domain, 'watford'))
+        {
+            $this->logger  = $this->get('app.errors_controller');
+            $this->logger->log('Process Site Problem', 'Problem generating JSON');
+        }
 
         return $this->redirect($this->generateUrl('site', array('id' => $siteId)));
     }

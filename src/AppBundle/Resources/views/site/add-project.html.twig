@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link href="{{ asset('assets/css/bootstrap.min.css') }}" type="text/css" rel="stylesheet">
+    <link href="{{ asset('font-awesome/css/font-awesome.css') }}" type="text/css" rel="stylesheet">
+    <link href="{{ asset('assets/css/animate.css') }}" type="text/css" rel="stylesheet">
+    <link href="{{ asset('assets/css/style.css') }}" type="text/css" rel="stylesheet">
+{% endblock %}
+
+
+{% block body %}
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<body class="gray-bg">
+
+<div class="middle-box text-center loginscreen  animated fadeInDown">
+    <div>
+        <div>
+            <h1 class="logo-name">GO+</h1>
+        </div>
+
+        <h3>Make Site</h3>
+
+
+
+        <form class="m-t" role="form" method="POST" action="../make-project">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Folder" name="folder" />
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Database Host" name="dbhost" />
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Database User" name="dbuser" />
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Database Password" name="dbpass" />
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Database Name" name="dbname" />
+            </div>
+
+            <button type="submit" class="btn btn-primary block full-width m-b" name="submit">Make Site</button>
+
+            <a href="#"><small>Forgot password?</small></a>
+        </form>
+        <p class="m-t"> <small>Code by <a href="http://www.zygimantas-simkus.com">Zygimantas Simkus</a> &copy; 2014</small> </p>
+    </div>
+</div>
+
+<!-- Mainly scripts -->
+<script src="{{ asset('assets/js/jquery-2.1.1.js') }}"></script>
+<script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+
+{% endblock %}
