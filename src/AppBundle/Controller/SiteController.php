@@ -152,7 +152,9 @@ class SiteController extends Controller
         $repo    = $em->getRepository('AppBundle:Sites');
         $results = $repo->findAll();
 
-        return $this->render('AppBundle:sites:index.html.twig', array('sites' => $results));
+        $admin   = $this->getAdminDetails(2);
+
+        return $this->render('AppBundle:sites:index.html.twig', array('administrator' => $admin, 'sites' => $results));
     }
 
     private function siteExists($id)
@@ -231,6 +233,25 @@ class SiteController extends Controller
         $pathJSON     = '/home/' . $folder . '/public_html/database.json';
 
         return file_put_contents($pathJSON, $databaseJSON) ? TRUE : FALSE;
+    }
+    
+
+    private function getAdminDetails($id)
+    {
+        $em                = $this->getDoctrine()->getManager();
+        $repository        = $em->getRepository('AppBundle:Admin');
+        $administrator     = $repository->findOneById($id);
+
+        $admin['name']     = $administrator->getName();
+        $admin['id']       = $administrator->getId();
+        $admin['password'] = $administrator->getPassword();
+        $admin['picture']  = $administrator->getPicture();
+
+        $administrator->setLastLoggedIn(new \DateTime(date('Y-m-d H:i:s')));
+        $administrator->setCurrentLocation($this->request->getPathInfo());
+        $em->flush();
+
+        return is_array($admin) && !is_null($admin) ? $admin : false;
     }
 
 }
