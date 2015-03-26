@@ -153,7 +153,7 @@ class SiteController extends Controller
         $results = $repo->findAll();
 
         $admin   = $this->getAdminDetails(2);
-        $pageId  = 2;
+        $pageId  = '2';
 
         return $this->render('AppBundle:sites:index.html.twig', array('administrator' => $admin, 'sites' => $results, 'pageId' => $pageId));
     }
