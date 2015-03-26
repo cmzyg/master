@@ -234,24 +234,7 @@ class SiteController extends Controller
 
         return file_put_contents($pathJSON, $databaseJSON) ? TRUE : FALSE;
     }
+
     
-
-    private function getAdminDetails($id)
-    {
-        $em                = $this->getDoctrine()->getManager();
-        $repository        = $em->getRepository('AppBundle:Admin');
-        $administrator     = $repository->findOneById($id);
-
-        $admin['name']     = $administrator->getName();
-        $admin['id']       = $administrator->getId();
-        $admin['password'] = $administrator->getPassword();
-        $admin['picture']  = $administrator->getPicture();
-
-        $administrator->setLastLoggedIn(new \DateTime(date('Y-m-d H:i:s')));
-        $administrator->setCurrentLocation($this->request->getPathInfo());
-        $em->flush();
-
-        return is_array($admin) && !is_null($admin) ? $admin : false;
-    }
 
 }
