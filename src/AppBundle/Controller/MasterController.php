@@ -24,7 +24,7 @@ class MasterController extends Controller
     }
 
     /**
-     * @Route("/", name="homepage")
+     * @Route("/index", name="homepage")
      */
     public function indexAction()
     {
