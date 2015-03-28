@@ -145,21 +145,20 @@
 
                                     <div>
                                         <div class="feed-activity-list">
+                                        <ul class="list-group clear-list m-t">
                                             {% for site in sites %}
+                                                {% if site.status == 0 %}
+                                                    {% set status = 'danger' %}
+                                                {% else %}
+                                                    {% set status = 'primary' %}
+                                                {% endif %}
 
-      
-                                            <div class="feed-element">
-                                                <div class="media-body ">
-                                                    
-                                                    <strong><a href="site/{{site.id}}">{{site.domain}}</a></strong> <br>
-                                                </div>
-                                            </div>
-
-                                        {% endfor %}
-
-   
+                                            <li class="list-group-item fist-item">
+                                                <a href="site/{{ site.id }}"><span class="label label-{{ status }}">{{ site.id }} </span> {{ site.domain }}</a>
+                                            </li>
+                                            {% endfor %}
+                                        </ul>                                               
                                         </div>
-
                                     </div>
 
                                 </div>
