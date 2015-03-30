@@ -23,8 +23,7 @@ class IncludesController
 
     public function getManagedSites($limit = null)
     {
-        $em         = $this->getDoctrine()->getManager();
-        $repository = $em->getRepository('AppBundle:Sites');
+        $repository = $this->em->getRepository('AppBundle:Sites');
         $sites      = $repository->findBy(array(), array('id' => 'DESC'), $limit);
 
         return $sites;
