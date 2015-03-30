@@ -16,6 +16,7 @@ class MasterController extends Controller
     private $request;
     private $session;
     private $logger;
+    private $global;
 
     public function __construct()
     {
@@ -33,8 +34,10 @@ class MasterController extends Controller
             // return $this->redirect($this->generateUrl('login'));
         }
 
+        $this->global = $this->get('app.includes_controller');
+        $sites  = $this->global->getManagedSites();
+
         $admin  = $this->getAdminDetails(2);
-        $sites  = $this->getManagedSites();
         $errors = $this->getErrors(3);
         $pageId = '1';
 
