@@ -37,6 +37,8 @@ class SiteController extends Controller
      */
     public function indexAction($id)
     {
+        $admin  = $this->getAdminDetails(2);
+        
         if(!is_null($id))
         {
             if($this->siteExists($id))
