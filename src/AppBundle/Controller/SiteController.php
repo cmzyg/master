@@ -38,6 +38,7 @@ class SiteController extends Controller
     public function indexAction($id)
     {
         $admin  = $this->getAdminDetails(2);
+        $pageId = 2;
 
         if(!is_null($id))
         {
@@ -64,7 +65,7 @@ class SiteController extends Controller
                     $fileList[] = $file->getRealpath();
                 }
 
-                return $this->render('AppBundle:site:index.html.twig', array('administrator' => $admin, 'siteInfo' => $siteInfo, 'siteConfig' => $siteConfig, 'connectionStatus' => $connectionStatus, 'id' => $id, 'fileList' => $fileList, 'fileCount' => sizeof($fileList)));
+                return $this->render('AppBundle:site:index.html.twig', array('pageId' => 2, 'administrator' => $admin, 'siteInfo' => $siteInfo, 'siteConfig' => $siteConfig, 'connectionStatus' => $connectionStatus, 'id' => $id, 'fileList' => $fileList, 'fileCount' => sizeof($fileList)));
             }
         }
 
