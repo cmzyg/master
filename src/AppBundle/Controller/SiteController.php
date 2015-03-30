@@ -150,7 +150,7 @@ class SiteController extends Controller
     {
         $em      = $this->getDoctrine()->getManager();
         $repo    = $em->getRepository('AppBundle:Sites');
-        $results = $repo->findAll();
+        $results = $repo->findAll(array(), array('id' => 'DESC'));
 
         $admin   = $this->getAdminDetails(2);
         $pageId  = '2';
