@@ -165,7 +165,7 @@
 
                                             <h3>{{ connectionStatus }}</h3>
 
-                                            <h3>File List ({{ fileCount }} files)</h3>
+                                            <h3 class='files-list'>File List ({{ fileCount }} files)</h3>
                                             <div class="hidden">
                                                 {% for file in fileList %}
                                                     {{ file }} <br />
@@ -174,9 +174,9 @@
 
                                             <script>
                                             $(document).ready(function() {
-                                                $('.hidden').click(function() {
+                                                $('.files-list').click(function() {
                                                     $('.hidden').show();
-                                                });
+                                                })
                                             });
                                             </script>                                        
 
