@@ -7,7 +7,7 @@ use Doctrine\Entity;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use AppBundle\Entity\Errors;
+use Doctrine\Entity\Sites;
 
 
 
@@ -21,7 +21,7 @@ class IncludesController
         $this->em = $em;
     }
 
-    private function getManagedSites($limit = null)
+    public function getManagedSites($limit = null)
     {
         $em         = $this->getDoctrine()->getManager();
         $repository = $em->getRepository('AppBundle:Sites');
