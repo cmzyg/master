@@ -36,7 +36,7 @@ class MasterController extends Controller
         }
 
         $this->global = $this->get('app.includes_controller');
-        $sites  = $this->global->getManagedSites();
+        $sites  = $this->global->getManagedSites(3);
 
         $admin  = $this->getAdminDetails(2);
         $errors = $this->getErrors(3);

@@ -148,9 +148,8 @@ class SiteController extends Controller
     */
     public function getSites()
     {
-        $em      = $this->getDoctrine()->getManager();
-        $repo    = $em->getRepository('AppBundle:Sites');
-        $results = $repo->findAll(array(), array('id' => 'DESC'));
+        $this->global = $this->get('app.includes_controller');
+        $sites  = $this->global->getManagedSites();
 
         $admin   = $this->getAdminDetails(2);
         $pageId  = '2';
