@@ -192,7 +192,13 @@
                                 <div class="hr-line-dashed"></div>
 
                                 <div class="form-group"><label class="col-sm-2 control-label">DB PASS</label>
-                                    <div class="col-sm-10"><input type="text" class="form-control" name="dbpass" value="{{ siteConfig.dbpass }}"> <span class="help-block m-b-none"><small>Please input database password</small></span>
+                                    <div class="col-sm-10"><input type="password" class="form-control" name="dbpass" value="{{ siteConfig.dbpass }}"> <span class="help-block m-b-none"><small>Please input database password</small></span>
+                                    </div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+
+                                <div class="form-group"><label class="col-sm-2 control-label">DB NAME</label>
+                                    <div class="col-sm-10"><input type="text" class="form-control" name="dbname" value="{{ siteConfig.dbname }}"> <span class="help-block m-b-none"><small>Please input database name</small></span>
                                     </div>
                                 </div>
                                 <div class="hr-line-dashed"></div>
@@ -233,20 +239,6 @@
                                     <div>
                                         <div class="feed-activity-list">
 
-                                            <form method="POST" action="../process-site">
-                                                <h3>DOMAIN</h3>
-                                                <p><input type="text" name="domain" value="{{ siteInfo.domain }}" /></p>
-                                                <h3>DB HOST</h3>
-                                                <p><input type="text" name="dbhost" value="{{ siteConfig.dbhost }}" /></p>
-                                                <h3>DB USER</h3>
-                                                <p><input type="text" name="dbuser" value="{{ siteConfig.dbuser }}" /></p>
-                                                <h3>DB PASS</h3>
-                                                <p><input type="password" name="dbpass" value="{{ siteConfig.dbpass }}" /></p>
-                                                <h3>DB NAME</h3>
-                                                <p><input type="text" name="dbname" value="{{ siteConfig.dbname }}" /></p>
-                                                <input type="hidden" name="id" value="{{ id }}" />
-                                                <p><input type="submit" name="submit" value="Change Settings" class="show-files"></p>
-                                            </form>
 
                                             <h3>{{ connectionStatus }}</h3>
 
