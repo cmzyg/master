@@ -238,8 +238,12 @@
                                     <div>
                                         <div class="feed-activity-list">
 
-
-                                            <h3>Database connection status: {{ connectionStatus }}</h3>
+                                            {% if connectionStatus == 'Connection successful' %}
+                                                {% set connectionColor = 'green' %}
+                                            {% else %}
+                                                {% set connectionColor = 'red' %}
+                                            {% endif %}
+                                            <h3>Database connection status: <span style='color:{{connectionColor}}'>{{ connectionStatus }}</span></h3>
 
                                             <h3 class='files-list'>File List ({{ fileCount }} files)</h3>
                                             <div class="hidden">

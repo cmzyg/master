@@ -173,14 +173,14 @@ class SiteController extends Controller
     {
         if(@mysqli_connect($dbhost, $dbuser, $dbpass, $dbname))
         {
-            $connectionStatus = "<span style='color:red'>Connection successful</span>";
+            $connectionStatus = "Connection successful";
         }
         else
         {
             $this->logger  = $this->get('app.errors_controller');
             $this->logger->log('Database Problem', 'Incorrect database connection details');
 
-            $connectionStatus = "<span style='color:red'>Connection unsuccessful</span>";
+            $connectionStatus = "Connection unsuccessful";
         }
 
         return $connectionStatus;
