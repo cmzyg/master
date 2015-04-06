@@ -32,8 +32,7 @@ class MasterController extends Controller
     {
         if($this->isLoggedIn() == NULL)
         {
-            return $this->render('AppBundle:login:index.html.twig');
-            die;
+            return $this->render('AppBundle:login:index.html.twig', array('token' => md5(rand(1, 22222222))));
         }
 
         $this->global = $this->get('app.includes_controller');
