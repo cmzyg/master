@@ -85,7 +85,7 @@ class MasterController extends Controller
 
     private function isLoggedIn()
     {
-        $adminSession = $this->session->get('admin');
+        $adminSession = $this->session->get('admin_name');
         return $adminSession;
     }
 
