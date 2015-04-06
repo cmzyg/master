@@ -57,12 +57,13 @@ class AuthController extends Controller
 
             if ($result < 1)
             {
-                $this->session->getFlashBag()->add('error', 'Incorrect login details');
+                $errors = 'Incorrect login details';
                 $action = $this->redirectToRoute('login');
             }
             else
             {
-                $admin = $query->getResult();
+                $errors = '';
+                $admin  = $query->getResult();
                 $this->session->start();
                 $this->session->set('admin_name', $admin[0]['name']);
                 $this->session->set('admin_id', $admin[0]['id']);
