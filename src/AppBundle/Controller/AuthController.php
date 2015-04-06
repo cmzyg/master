@@ -32,7 +32,7 @@ class AuthController extends Controller
             return $this->redirect($this->generateUrl('homepage'));
         }
 
-        return $this->render('login/index.html.twig', array('token' => md5(rand(1, 22222222))));
+        return $this->render('AppBundle:login:index.html.twig', array('token' => md5(rand(1, 22222222))));
     }
 
     /**
