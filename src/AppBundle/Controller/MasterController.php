@@ -33,6 +33,7 @@ class MasterController extends Controller
         if(!isset($this->isLoggedIn()))
         {
             return $this->redirectToRoute('login');
+            die;
         }
 
         $this->global = $this->get('app.includes_controller');
