@@ -32,7 +32,7 @@ class MasterController extends Controller
     {
         if(!isset($this->isLoggedIn()))
         {
-            return $this->redirectToRoute('login');
+            return $this->render('AppBundle:login:index.html.twig');
             die;
         }
 
