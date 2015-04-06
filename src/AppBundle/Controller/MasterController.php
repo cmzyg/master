@@ -30,10 +30,9 @@ class MasterController extends Controller
      */
     public function indexAction()
     {
-        var_dump($this->isLoggedIn()); die;
-        if(!$this->isLoggedIn())
+        if(!isset($this->isLoggedIn()))
         {
-            // return $this->redirect($this->generateUrl('login'));
+            return $this->redirect($this->generateUrl('login'));
         }
 
         $this->global = $this->get('app.includes_controller');
