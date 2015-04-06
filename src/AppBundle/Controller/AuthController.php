@@ -27,7 +27,7 @@ class AuthController extends Controller
      */
     public function indexAction()
     {
-        if($this->isLoggedIn() == NULL)
+        if($this->isLoggedIn() ! == NULL)
         {
             return $this->redirect($this->generateUrl('homepage'));
         }
