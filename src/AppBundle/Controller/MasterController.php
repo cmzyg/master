@@ -30,6 +30,7 @@ class MasterController extends Controller
      */
     public function indexAction()
     {
+        var_dump($this->isLoggedIn()); die;
         if(!$this->isLoggedIn())
         {
             // return $this->redirect($this->generateUrl('login'));
@@ -84,7 +85,8 @@ class MasterController extends Controller
 
     private function isLoggedIn()
     {
-        return $this->container->get('session')->isStarted();
+        $adminSession = $session->get('admin');
+        return $adminSession;
     }
 
 
