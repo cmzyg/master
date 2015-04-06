@@ -27,7 +27,7 @@ class AuthController extends Controller
      */
     public function indexAction()
     {
-        if($this->isLoggedIn())
+        if($this->isLoggedIn() == NULL)
         {
             return $this->redirect($this->generateUrl('homepage'));
         }
@@ -80,7 +80,8 @@ class AuthController extends Controller
 
     private function isLoggedIn()
     {
-        return $this->container->get('session')->isStarted();
+        $adminSession = $this->session->get('admin');
+        return $adminSession;
     }
 
     /**
