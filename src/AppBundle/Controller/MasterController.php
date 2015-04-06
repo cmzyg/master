@@ -30,7 +30,7 @@ class MasterController extends Controller
      */
     public function indexAction()
     {
-        if($this->isLoggedIn() !== NULL)
+        if($this->isLoggedIn() == NULL)
         {
             return $this->render('AppBundle:login:index.html.twig');
             die;
