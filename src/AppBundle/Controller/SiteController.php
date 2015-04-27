@@ -81,6 +81,7 @@ class SiteController extends Controller
     public function siteBusinessDetails()
     {
         $siteID      = $this->request->query->get('id');
+        $site        = $this->getSite($siteID);
         $siteService = $this->get('app.site_service_controller');
         
         //$siteService->establishDatabaseConnection($siteConfig['dbhost'], $siteConfig['dbuser'], $siteConfig['dbpass'], $siteConfig['dbname']);
