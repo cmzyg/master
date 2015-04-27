@@ -75,7 +75,8 @@ class SiteController extends Controller
     }
 
 
-   /* 
+   /** 
+    * @Method("GET")
     * @Route("business-settings/{id}", name="business-settings")
     */
     public function siteBusinessSettings()
