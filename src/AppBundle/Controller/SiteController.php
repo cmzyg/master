@@ -83,11 +83,20 @@ class SiteController extends Controller
         $siteID      = $this->request->query->get('id');
         $site        = $this->getSite($siteID);
         $siteService = $this->get('app.site_service_controller');
-        
-        //$siteService->establishDatabaseConnection($siteConfig['dbhost'], $siteConfig['dbuser'], $siteConfig['dbpass'], $siteConfig['dbname']);
 
-        //$businessDetails = $siteService->getBusinessDetails();
-        $businessDetails = array('aa' => 'aa');
+        $siteInfo    = array();
+        $siteConfig  = array();
+
+        $siteInfo['domain']   = $site[0]['domain'];
+        $siteInfo['id']       = $site[0]['id'];
+        $siteConfig['dbhost'] = $site[0]['dbhost'];
+        $siteConfig['dbuser'] = $site[0]['dbuser'];
+        $siteConfig['dbpass'] = $site[0]['dbpass'];
+        $siteConfig['dbname'] = $site[0]['dbname'];
+        
+        $siteService->establishDatabaseConnection($siteConfig['dbhost'], $siteConfig['dbuser'], $siteConfig['dbpass'], $siteConfig['dbname']);
+
+        $businessDetails = $siteService->getBusinessDetails();
         return $this->render('AppBundle:site:business-details.html.twig', $businessDetails);
     }
 
