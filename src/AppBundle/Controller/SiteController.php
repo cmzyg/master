@@ -37,7 +37,13 @@ class SiteController extends Controller
      */
     public function indexAction($id)
     {
-        $this->get('app.site_service');
+        $siteService = $this->get('app.site_service');
+        if($siteService->establishDatabaseConnection($siteConfig['dbhost'], $siteConfig['dbuser'], $siteConfig['dbpass'], $siteConfig['dbname']))
+        {
+            die('zygis');
+        }
+
+
         $admin  = $this->getAdminDetails(2);
         $pageId = 2;
 
