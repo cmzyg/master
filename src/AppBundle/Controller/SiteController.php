@@ -76,9 +76,9 @@ class SiteController extends Controller
 
 
    /* 
-    * @Route("site/business-settings/{id}", name="business-settings")
+    * @Route("business-settings/{id}", name="business-settings")
     */
-    public function siteBusinessDetails()
+    public function siteBusinessSettings()
     {
         $siteID      = $this->request->query->get('id');
         $site        = $this->getSite($siteID);
