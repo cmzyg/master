@@ -25,11 +25,7 @@ class SiteServiceController
     {
         if(!mysqli_connect($dbhost, $dbuser, $dbpass, $dbname))
         {
-            return true;
-        }
-        else
-        {
-            return false;
+            echo mysqli_error();
         }
     }
 
