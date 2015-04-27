@@ -68,7 +68,7 @@ class SiteController extends Controller
                     $fileList[] = $file->getRealpath();
                 }
 
-                if($siteService->establishDatabaseConnection($siteConfig['dbhost'], $siteConfig['dbuser'], $siteConfig['dbpass'], $siteConfig['dbname']))
+                if(!$siteService->establishDatabaseConnection($siteConfig['dbhost'], $siteConfig['dbuser'], $siteConfig['dbpass'], $siteConfig['dbname']))
                 {
                     die('zygis');
                 }
