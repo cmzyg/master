@@ -38,10 +38,6 @@ class SiteController extends Controller
     public function indexAction($id)
     {
         $siteService = $this->get('app.site_service');
-        if($siteService->establishDatabaseConnection($siteConfig['dbhost'], $siteConfig['dbuser'], $siteConfig['dbpass'], $siteConfig['dbname']))
-        {
-            die('zygis');
-        }
 
 
         $admin  = $this->getAdminDetails(2);
@@ -71,6 +67,11 @@ class SiteController extends Controller
                 {
                     $fileList[] = $file->getRealpath();
                 }
+
+                 if($siteService->establishDatabaseConnection($siteConfig['dbhost'], $siteConfig['dbuser'], $siteConfig['dbpass'], $siteConfig['dbname']))
+        {
+            die('zygis');
+        }
 
                 return $this->render('AppBundle:site:index.html.twig', array('pageId' => 2, 'administrator' => $admin, 'siteInfo' => $siteInfo, 'siteConfig' => $siteConfig, 'connectionStatus' => $connectionStatus, 'id' => $id, 'fileList' => $fileList, 'fileCount' => sizeof($fileList)));
             }
