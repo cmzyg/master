@@ -26,7 +26,6 @@ class SiteServiceController
         {
             echo mysqli_error(); die;
         }
-        else die('works');
     }
 
 }
