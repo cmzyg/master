@@ -10,7 +10,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use AppBundle\Entity\Sites;
 
 
-
 class SiteServiceController
 {
     private $em;
@@ -25,7 +24,7 @@ class SiteServiceController
     {
         if(!mysqli_connect($dbhost, $dbuser, $dbpass, $dbname))
         {
-            echo mysqli_error();
+            echo mysqli_error(); die;
         }
     }
 
