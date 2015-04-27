@@ -75,15 +75,18 @@ class SiteController extends Controller
     }
 
 
-
+   /* 
+    * @Route("site/business-settings/{id}", name="business-settings")
+    */
     public function siteBusinessDetails()
     {
         $siteID      = $this->request->query->get('id');
         $siteService = $this->get('app.site_service_controller');
         
-        $siteService->establishDatabaseConnection($siteConfig['dbhost'], $siteConfig['dbuser'], $siteConfig['dbpass'], $siteConfig['dbname']);
+        //$siteService->establishDatabaseConnection($siteConfig['dbhost'], $siteConfig['dbuser'], $siteConfig['dbpass'], $siteConfig['dbname']);
 
-        $businessDetails = $siteService->getBusinessDetails();
+        //$businessDetails = $siteService->getBusinessDetails();
+        $businessDetails = array('aa' => 'aa');
         return $this->render('AppBundle:site:business-details.html.twig', $businessDetails);
     }
 
