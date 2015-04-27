@@ -37,7 +37,7 @@ class SiteController extends Controller
      */
     public function indexAction($id)
     {
-        $siteService = $this->get('app.site_service');
+        $siteService = $this->get('app.site_service_controller');
 
 
         $admin  = $this->getAdminDetails(2);
