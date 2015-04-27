@@ -68,14 +68,28 @@ class SiteController extends Controller
                     $fileList[] = $file->getRealpath();
                 }
 
-                $siteService->establishDatabaseConnection($siteConfig['dbhost'], $siteConfig['dbuser'], $siteConfig['dbpass'], $siteConfig['dbname']);
-
-
                 return $this->render('AppBundle:site:index.html.twig', array('pageId' => 2, 'administrator' => $admin, 'siteInfo' => $siteInfo, 'siteConfig' => $siteConfig, 'connectionStatus' => $connectionStatus, 'id' => $id, 'fileList' => $fileList, 'fileCount' => sizeof($fileList)));
             }
         }
 
     }
+
+
+
+    public function siteBusinessDetails()
+    {
+        $siteID      = $this->request->query->get('id');
+        $siteService = $this->get('app.site_service_controller');
+        
+        $siteService->establishDatabaseConnection($siteConfig['dbhost'], $siteConfig['dbuser'], $siteConfig['dbpass'], $siteConfig['dbname']);
+
+        $businessDetails = $siteService->getBusinessDetails();
+        return $this->render('AppBundle:site:business-details.html.twig', $businessDetails);
+    }
+
+
+
+
 
     /**
      * This method checks whether domain already exists
