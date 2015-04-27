@@ -97,7 +97,7 @@ class SiteController extends Controller
         
         $siteService->establishDatabaseConnection($siteConfig['dbhost'], $siteConfig['dbuser'], $siteConfig['dbpass'], $siteConfig['dbname']);
 
-        $businessDetails = $siteService->getBusinessDetails();
+        $businessDetails = $siteService->getBusinessSettings();
         return $this->render('AppBundle:site:business-details.html.twig', $businessDetails);
     }
 

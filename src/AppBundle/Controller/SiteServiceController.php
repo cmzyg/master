@@ -28,4 +28,9 @@ class SiteServiceController
         }
     }
 
+    public function getBusinessSettings()
+    {
+        return array('beris' => 'beriiiis');
+    }
+
 }
