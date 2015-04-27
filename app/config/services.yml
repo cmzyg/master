@@ -17,6 +17,6 @@ services:
          arguments: ["@doctrine.orm.entity_manager"]
 
      app.site_service:
-         class: AppBundle\Service\SiteService
+         class: AppBundle\Controllers\SiteServiceController
          arguments: ["@doctrine.orm.entity_manager"]
 
