@@ -79,7 +79,7 @@ class SiteController extends Controller
     * @Method("GET")
     * @Route("business-settings/{id}", name="business-settings")
     */
-    public function siteBusinessSettings()
+    public function siteBusinessSettings(Request $request)
     {
         $siteID      = $this->request->query->get('id');
         var_dump($siteID); die;
