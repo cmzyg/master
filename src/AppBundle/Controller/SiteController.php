@@ -82,7 +82,7 @@ class SiteController extends Controller
     public function siteBusinessSettings()
     {
         $siteID      = $this->request->query->get('id');
-        $site        = $this->getSite(8);
+        $site        = $this->getSite($siteID);
         $siteService = $this->get('app.site_service_controller');
 
         $siteInfo    = array();
