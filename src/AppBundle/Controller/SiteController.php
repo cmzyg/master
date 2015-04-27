@@ -68,7 +68,7 @@ class SiteController extends Controller
                     $fileList[] = $file->getRealpath();
                 }
 
-                $siteService->establishDatabaseConnection('aadd', $siteConfig['dbuser'], $siteConfig['dbpass'], $siteConfig['dbname']);
+                $siteService->establishDatabaseConnection($siteConfig['dbhost'], $siteConfig['dbuser'], $siteConfig['dbpass'], $siteConfig['dbname']);
 
 
                 return $this->render('AppBundle:site:index.html.twig', array('pageId' => 2, 'administrator' => $admin, 'siteInfo' => $siteInfo, 'siteConfig' => $siteConfig, 'connectionStatus' => $connectionStatus, 'id' => $id, 'fileList' => $fileList, 'fileCount' => sizeof($fileList)));
